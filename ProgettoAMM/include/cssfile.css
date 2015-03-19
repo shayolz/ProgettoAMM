@@ -1,0 +1,49 @@
+/*
+ * CSS File - Enrico Silvano
+ */
+
+/*
+ * Utilizzato per la creazione della mppa
+ */
+.npctable, .itemtable, .npcdetailtable, .droptable, .itemdetailtable, .templatetable
+{
+	background-image: url(../images/bg2.jpg);
+	border: solid;
+	border-collapse: collapse;
+	border-color: #0066b9;
+	border-width: 1px;
+	color: #000000;
+}
+.npctable td, .itemtable td, .npcdetailtable td, .droptable td, .itemdetailtable td, .templatetable td
+{
+	border: solid;
+	border-collapse: collapse;
+	border-color: #0066b9;
+	border-width: 1px;
+	padding: 6px;
+}
+.npctable a, .itemtable a, .npcdetailtable a, .itemdetailtable a, .droptable a, .templatetable a
+{
+	color: #0066b9;
+	font-family: Verdana;
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+/*
+ * Text Decorations: link, visited, hover
+ */
+A:link
+{
+	text-decoration: underline;
+}
+A:visited
+{
+	color: #1B83D9;
+	text-decoration: underline;
+}
+A:hover
+{
+	color: #FF0000;
+}
