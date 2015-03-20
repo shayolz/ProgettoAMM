@@ -11,12 +11,12 @@
 // includo i file necessari a collegarmi al db con relativo script di accesso
 include "./include/config.php";
 
-echo "<div style=position:absolute;top:0px;left:0px><img src='./images/map.jpg'></div>";
+echo "<div id='mappa'><img src='./images/map.jpg'></div>";
 
 // query per selezionare l`oggetto richiesto dall-utente
 $query=mysql_query("SELECT * FROM componenti_elettronici WHERE nome='{$_POST['campo10']}'");
 
-$posizionescritta = 20;
+$posizionescritta = 50;
 
 while ($res=mysql_fetch_array($query))
 {
@@ -25,12 +25,12 @@ while ($res=mysql_fetch_array($query))
 	$y=$res['posizionescaffaley'];
 
         // Mostra un pallino dove e` collocato il prodotto da noi inserito
-	echo "<div style=\"position:absolute;top:".$y."px;left:".$x."px\"><img src='./images/pallino.png' title='Quantita $res[quantita] $res[nome]'></div><center>";
+	echo "<div style=\"position:absolute;top:".$y."px;left:".$x."px\"><img src='./images/pallino.png' title='Quantita $res[quantita], id $res[id]'></div><center>";
         
         // per la posizione delle scritte a destra della mappa, ogni volta che ne trova una scala di 20 in basso
         $posizionescritta = $posizionescritta+20;
 
-echo "<div style=position:absolute;top:".$posizionescritta."px;left:420px>Nome: $res[nome], reparto: $res[reparto], sezione: $res[sezione], quantita: $res[quantita]</div><br>";
+echo "<div style=position:absolute;top:".$posizionescritta."px;left:420px>ID: $res[id], reparto: $res[reparto], sezione: $res[sezione], quantita: $res[quantita]</div><br>";
 }
 
 // scritte

@@ -47,3 +47,46 @@ A:hover
 {
 	color: #FF0000;
 }
+/* decorazione 1 */
+span.dec1 
+{
+        font-style: italic;
+	font-weight: bold;
+	}
+        
+        /* decorazione 2 */
+span.dec2 
+{
+	font-weight: bold;
+        text-decoration: none;
+	}
+        
+                /* decorazione 3 */
+span.dec3 
+{
+	font-weight: bold;
+        text-decoration: none;
+        background-color: #088A08;
+        color: #FFFFFF;
+	}
+        
+        
+        span.dec3 
+{
+	font-weight: bold;
+        text-decoration: none;
+        background-color: #088A08;
+        color: #FFFFFF;
+	}
+        
+        
+                /* mappa */
+#mappa
+{
+	position:absolute;
+        top:0px;
+        left:0px;
+	}
+        
+        
+

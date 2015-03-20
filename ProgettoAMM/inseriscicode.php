@@ -81,13 +81,32 @@ $posizionex=330+$randomValuex;
 $posizioney= 510+$randomValuey;
 }
 
-// query per l`inserimento dei dati nel DB
-$query = "INSERT INTO componenti_elettronici (nome,reparto,sezione,quantita,posizionescaffalex,posizionescaffaley) VALUES ('{$_POST['campo1']}', '{$_POST['campo2']}', '{$_POST['campo3']}','{$_POST['campo4']}', $posizionex, $posizioney)";
+// query per selezionare tutti i campi e generale l id unico
+$queryselect=mysql_query("SELECT id FROM componenti_elettronici");
 
-if (mysql_query ($query))
+$ultimoId = 0;
+$nuovoId = 0;
+
+// calcolo del nuovo id unico
+while ($res=mysql_fetch_array($queryselect))
+{
+	if($ultimoId < $res['id'])
+            {
+          $ultimoId=$res['id'];
+          }
+}
+
+$nuovoId = $ultimoId+1;
+
+// query per l`inserimento dei dati nel DB
+$query = "INSERT INTO componenti_elettronici (id, nome,reparto,sezione,quantita,posizionescaffalex,posizionescaffaley) VALUES ('$nuovoId', '{$_POST['campo1']}', '{$_POST['campo2']}', '{$_POST['campo3']}','{$_POST['campo4']}', $posizionex, $posizioney)";
+
+if (mysql_query ($query)){
    echo ("Inserimento riuscito!");
-else
-   echo ("Errore nell'inserimento! Si prega di riprovare!");  
+}
+else{
+   echo ("Errore nell'inserimento! Si prega di riprovare!");
+}
 
 // chiudiamo la connessione con il db
 mysql_close(); 

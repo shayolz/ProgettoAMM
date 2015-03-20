@@ -16,7 +16,7 @@
 
 </td>
 <td>
-<img src="images/logo.jpg" alt="logo"> <br>
+<img src="images/logo.jpg" alt="logo" title="logo website"> <br>
 
 </td>
 </tr>
@@ -27,4 +27,5 @@
 <br>
 
 <!-- Footer part -->
-<?php include 'template/templateFOOTER.php';?>
+<?php include 'template/templateFOOTER.php';
+ 

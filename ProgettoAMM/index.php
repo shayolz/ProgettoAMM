@@ -13,8 +13,8 @@
                <tr>
                   <td>
                      <h3>Inserisci le credenziali per accedere al sistema</h3>
-                     <u>Amministratore</u>: Username: amministratore, password: prova<br>
-                     <u>Operatore</u>: Username: operatore, password: prova <br>
+                     <span class="dec1">Amministratore</span>: Username: amministratore, password: prova<br>
+                     <span class="dec1">Operatore</span>: Username: operatore, password: prova <br>
                      <form id="login" action="logincode.php" method="post">
                         <fieldset id="inputs">
                            <input id="username" name="username" type="text" placeholder="Username" autofocus required>

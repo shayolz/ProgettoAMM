@@ -28,10 +28,12 @@ $riga = mysql_fetch_array($ris);
 $cod = $riga['username'];
 
 // effettuo controllo
-if ($cod == NULL)
+if ($cod == NULL){
     $trovato = 0;
-else
+    }
+else{
     $trovato = 1;
+    }
 
 // Se username e password sono corrette
 if ($trovato === 1) {
@@ -43,10 +45,12 @@ if ($trovato === 1) {
     // Questo check l`ho fatto cosi semplice perche in questo caso abbiamo solo due utenti amministratore e operatore.
     // In un sistema piu` grande semplicemente si poteva aggiungere un campo nel DB con un valore 0/1 in base se l`utente
     // doveva essere un operatore o un amministratore.
-    if ($riga['username'] == "amministratore")
+    if ($riga['username'] == "amministratore"){
         $_SESSION["admin"] = 1;
-    else
+        }
+    else{
         $_SESSION["admin"] = 0;
+    }
     
     /* Registro il codice dell'utente */
     $_SESSION['cod'] = $cod;
