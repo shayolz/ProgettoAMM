@@ -1,7 +1,13 @@
-<table class='templatetable' align="center" width="90%">
-   <tr align='center'>
-      <td>
-         <table>
+    <!-- chiusura tabella css -->
+</div>
+    </div>   
+    <br>
+
+<!--tabella css -->
+    <div class="tabella">
+    <div class="rigatr">
+        
+        <table align='center'>
             <tr>
                <td><b>Enrico Silvano</b> <br>
                   <a href="http://moodle2.unica.it">http://moodle2.unica.it</a>
@@ -32,7 +38,9 @@
                </td>
             </tr>
          </table>
-      </td>
-   </tr>
-</table>
+    </div>
+    </div>
+    
+
+</div> <!-- main container -->
 </body></html>

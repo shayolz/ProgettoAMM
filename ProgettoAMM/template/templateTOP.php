@@ -11,13 +11,23 @@
     <script src="include/checkform.js"></script>
    </head>
    <body>
-      <table class='templatetable' align="center" width="90%">
-         <tr align='center'>
-            <td>
-               <a href="./">
-                  <h1>Sistema di gestione di un magazzino</h1>
+       
+       <div id="MAINcontainer"> 
+       
+     <!--tabella css -->  
+    <div class="tabella">
+    <div class="rigatr">
+        <a href="./">
+                  <h1><div class="scrittaLOGO">Sistema di gestione di un magazzino</div></h1>
                </a>
-            </td>
-         </tr>
-      </table>
+    </div>
+    </div>
+       
+       
       <br>
+
+      
+<!--tabella css -->          
+<div class="tabella">
+    <div class="rigatr">
+<br>  

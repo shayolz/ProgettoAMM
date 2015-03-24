@@ -3,18 +3,20 @@
 <?php include "loginsucess.php";?>
 <!-- TOP part -->
 <?php include 'template/templateTOP.php';?>
-<table class='templatetable' align="center" width="90%">
-<tr align='center'><td>
-<center>
-<table>
-<tr>
-<td>
+
+           <!--tabella css -->  
+    <div class="tabellapiccola">
+        <div class="rigatr">
+
+            <div class="colonnatd25"><div class="border"> 
 
 <!--MENU part -->
 <?php include 'template/templateMENU.php';?>
 
-</td>
-<td>
+</div></div>
+     
+            <div class="colonnatd75"><div class="border"> 
+                    
 <h3>Totale prodotti:</h3>
 Seleziona il componente per vedere quanti ne sono disponibili nel magazzino:<br><br>
 
@@ -31,14 +33,11 @@ Seleziona il componente per vedere quanti ne sono disponibili nel magazzino:<br>
 <INPUT TYPE="submit" VALUE="Mostra">
   </form>
 
-</td>
-</tr>
-</table>
-</center>
+</div>
+        </div>
+            </div>
+        </div>
 
-
-</td></tr>
-</table>
 <br>
 
 <!-- Footer part -->

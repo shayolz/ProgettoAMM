@@ -2,10 +2,8 @@
 <?php include "include/errorReport.php";?>
 <!-- TOP part -->
 <?php include 'template/templateTOP.php';?>
+
 <table class='templatetable' align="center" width="90%">
-<tr align='center'><td>
-<center>
-<table>
 <tr>
 <td>
 
@@ -47,6 +45,10 @@ if($elements != 0)
   </form>
     ";
     }
+    else
+        {
+        echo"Non sono presenti questi componenti all`interno del magazzino";
+    }
 //if (mysql_query ($query)){
 //   echo ("Inserimento riuscito!");
 //}
@@ -61,11 +63,7 @@ mysql_close();
 </td>
 </tr>
 </table>
-</center>
 
-
-</td></tr>
-</table>
 <br>
 
 <!-- Footer part -->

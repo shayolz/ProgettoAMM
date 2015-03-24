@@ -4,28 +4,27 @@
 <!-- TOP part -->
 <?php include 'template/templateTOP.php';?>
 
-<table class='templatetable' align="center" width="90%">
-<tr align='center'><td>
-<center>
-<table>
-<tr>
-<td>
 
-<!--MENU part -->
-<?php include 'template/templateMENU.php';?>
 
-</td>
-<td>
-<img src="images/logo.jpg" alt="logo" title="logo website"> <br>
 
-</td>
-</tr>
-</table>
-</center>
-</td></tr>
-</table>
+
+      
+           <!--tabella css -->  
+    <div class="tabellapiccola">
+        <div class="rigatr">
+        <div class="colonnatd25"><div class="border">  <?php include 'template/templateMENU.php';?></div></div>
+            <div class="colonnatd75"><div class="border"><img src="images/logo2.png" alt="logo" title="logo website">  </div></div>
+        
+ </div>
+    </div>
+           
+       
+
+         
+
 <br>
 
 <!-- Footer part -->
 <?php include 'template/templateFOOTER.php';
  
+

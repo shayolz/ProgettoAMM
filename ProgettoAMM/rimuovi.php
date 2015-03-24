@@ -5,18 +5,17 @@
 <!-- TOP part -->
 <?php include 'template/templateTOP.php';?>
 
-<table class='templatetable' align="center" width="90%">
-<tr><td>
-<center>
-<table>
-<tr>
-<td>
+           <!--tabella css -->  
+    <div class="tabellapiccola">
+        <div class="rigatr">
 
+            <div class="colonnatd25"><div class="border"> 
 <!--MENU part -->
 <?php include 'template/templateMENU.php';?>
 
-</td>
-<td>
+</div></div>
+     
+            <div class="colonnatd75"><div class="border"> 
 <!--form part, javascript Modulo() controlla se i dati inseriti sono validi -->
 <h3>Compila il form:</h3>
 Seleziona il componente che vuoi rimuovere dal magazzino.<br>
@@ -34,15 +33,10 @@ Seleziona il componente che vuoi rimuovere dal magazzino.<br>
   <br>
 <INPUT TYPE="submit" id="checkimput" value="Mostra lista">
   </form>
-
-</td>
-</tr>
-</table>
-</center>
-
-
-</td></tr>
-</table>
+</div>
+        </div>
+            </div>
+        </div>
 <br>
 
 <!-- Footer part -->

@@ -2,10 +2,8 @@
 <?php include "include/errorReport.php";?>
 <!-- TOP part -->
 <?php include 'template/templateTOP.php';?>
+
 <table class='templatetable' align="center" width="90%">
-<tr align='center'><td>
-<center>
-<table>
 <tr>
 <td>
 
@@ -114,11 +112,6 @@ mysql_close();
 
 </td>
 </tr>
-</table>
-</center>
-
-
-</td></tr>
 </table>
 <br>
 

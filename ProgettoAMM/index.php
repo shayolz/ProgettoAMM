@@ -4,15 +4,12 @@
 <!-- TOP part -->
 <?php include 'template/templateTOP.php';?>
 
-<!-- Middle part -->
-<table class='templatetable' align='center' width="90%">
-   <tr align='center'>
-      <td>
-         <center>
-            <table>
-               <tr>
-                  <td>
-                     <h3>Inserisci le credenziali per accedere al sistema</h3>
+
+    <br>
+    <div class="tabella">
+        <div class="rigatr">
+            <div class="border">
+                     <h3><div class="scrittaLOGO">Inserisci le credenziali per accedere al sistema</div></h3>
                      <span class="dec1">Amministratore</span>: Username: amministratore, password: prova<br>
                      <span class="dec1">Operatore</span>: Username: operatore, password: prova <br>
                      <form id="login" action="logincode.php" method="post">
@@ -24,13 +21,14 @@
                            <input type="submit" id="submit" value="Collegati">
                         </fieldset>
                      </form>
-                  </td>
-               </tr>
-            </table>
-         </center>
-      </td>
-   </tr>
-</table>
+                     
+                     <!-- documentazione -->
+                    <a href="./documentazione.php"><div id='scrittaDOCUMENTAZIONE'>Cosa fa il progetto (Non e` necessario il login)</div></a>
+                    </div> 
+          </div>  
+    </div> 
+    <br>
+    
 <br>
 <!-- Footer part -->
 <?php include 'template/templateFOOTER.php';?>

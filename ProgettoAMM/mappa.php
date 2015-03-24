@@ -4,20 +4,22 @@
 <!-- TOP part -->
 <?php include 'template/templateTOP.php';?>
 
-<table class='templatetable' align="center" width="90%">
-<tr align='center'><td>
-<center>
-<table>
-<tr>
-<td>
+           <!--tabella css -->  
+    <div class="tabellapiccola">
+        <div class="rigatr">
+
+            <div class="colonnatd25"><div class="border"> 
+
 
 <!--MENU part -->
 <?php include 'template/templateMENU.php';?>
 
-</td>
-<td>
+</div></div>
+     
+            <div class="colonnatd75"><div class="border"> 
+                    
 <h3>Seleziona componente:</h3>
-Seleziona il componente che verrà mostrato all'interno del magazzino:<br><br>
+Seleziona il componente che verrï¿½ mostrato all'interno del magazzino:<br><br>
 
 <form method="post" action="mappacode.php">
       <select size="1" name="campo10">
@@ -32,14 +34,11 @@ Seleziona il componente che verrà mostrato all'interno del magazzino:<br><br>
 <INPUT TYPE="submit" VALUE="Mostra nella mappa">
   </form>
 
-</td>
-</tr>
-</table>
-</center>
+</div>
+        </div>
+            </div>
+        </div>
 
-
-</td></tr>
-</table>
 <br>
 
 <!-- Footer part -->

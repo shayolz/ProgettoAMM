@@ -10,7 +10,7 @@ if ($_SESSION["admin"])
 }
 else
 {
-  echo "Logged as: <span class=dec3>Operatore<b></span>. <br>";
+  echo "Logged as: <span class=dec3>Operatore</span>. <br>";
   echo "1. <a href='./inserisci.php'><span style='text-decoration: line-through;'>Inserire nuovo prodotto</span></a> <br>";
   echo "2. <a href='./rimuovi.php'><span style='text-decoration: line-through;'>Rimuovi prodotto dal sistema</span></a> <br>";
 }
