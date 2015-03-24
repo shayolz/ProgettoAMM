@@ -4,7 +4,7 @@
 <?php include 'template/templateTOP.php';?>
 <!--tabella css -->          
 <div class="tabella">
-<div class="rigainvisibile">
+<div class="rigatr">
                      <!-- Cosa fa il progetto -->
                      <div id='scrittaCAP'>Cosa fa il progetto</div>
                      <div id='scrittaDESC'>Ho realizzato un semplice progetto per la gestione  di componenti elettronici all'interno di un piccolo magazzino.

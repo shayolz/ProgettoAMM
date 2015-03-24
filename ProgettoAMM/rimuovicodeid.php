@@ -2,18 +2,18 @@
 <?php include "include/errorReport.php";?>
 <!-- TOP part -->
 <?php include 'template/templateTOP.php';?>
-<table class='templatetable' align="center" width="90%">
-<tr align='center'><td>
-<center>
-<table>
-<tr>
-<td>
+           <!--tabella css -->  
+    <div class="tabellapiccola">
+        <div class="rigatr">
+
+            <div class="colonnatd25"><div class="border"> 
 
 <!--MENU part -->
 <?php include 'template/templateMENU.php';?>
 
-</td>
-<td>
+</div></div>
+     
+            <div class="colonnatd75"><div class="border"> 
 
 <?php
 
@@ -36,14 +36,10 @@ else{
 mysql_close(); 
 ?>
 
-</td>
-</tr>
-</table>
-</center>
-
-
-</td></tr>
-</table>
+</div>
+        </div>
+            </div>
+        </div>
 <br>
 
 <!-- Footer part -->
