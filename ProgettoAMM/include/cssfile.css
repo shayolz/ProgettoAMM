@@ -172,6 +172,7 @@ span.dec3 {
 }
 .rigatr {
     display: table-row;
+    border-collapse: collapse;
     // background-color: #2ECCFA;
 }
 .colonnatd75 {
@@ -180,7 +181,6 @@ span.dec3 {
     text-align: left;
     vertical-align: top;
     display: table-cell;
-    border-collapse: collapse;
     border: solid;
     border-collapse: collapse;
     border-color: #0066b9;
@@ -194,7 +194,6 @@ span.dec3 {
     display: table-cell;
     border-collapse: collapse;
     border: solid;
-    border-collapse: collapse;
     border-color: #0066b9;
     border-width: 1px;
     //background-color: #5E610B;
