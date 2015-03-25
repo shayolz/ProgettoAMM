@@ -1,20 +1,16 @@
 <?php
-
 echo "<h2>Menu:</h2> <br>";
 
-if ($_SESSION["admin"])
-{
-  echo "Logged as: <span class=dec3>Amministratore</span>. <br>";
-  echo "1. <a href='./inserisci.php'>Inserire nuovo prodotto</a> <br>";
-  echo "2. <a href='./rimuovi.php'>Rimuovi prodotto dal sistema</a> <br>";
+if ($_SESSION["admin"]) {
+    echo "Logged as: <span class=dec3>Amministratore</span>. <br>";
+    echo "1. <a href='./inserisci.php'>Inserire nuovo prodotto</a> <br>";
+    echo "2. <a href='./rimuovi.php'>Rimuovi prodotto dal sistema</a> <br>";
+} else {
+    echo "Logged as: <span class=dec3>Operatore</span>. <br>";
+    echo "1. <a href='./inserisci.php'><span style='text-decoration: line-through;'>Inserire nuovo prodotto</span></a> <br>";
+    echo "2. <a href='./rimuovi.php'><span style='text-decoration: line-through;'>Rimuovi prodotto dal sistema</span></a> <br>";
 }
-else
-{
-  echo "Logged as: <span class=dec3>Operatore</span>. <br>";
-  echo "1. <a href='./inserisci.php'><span style='text-decoration: line-through;'>Inserire nuovo prodotto</span></a> <br>";
-  echo "2. <a href='./rimuovi.php'><span style='text-decoration: line-through;'>Rimuovi prodotto dal sistema</span></a> <br>";
-}
- 
+
 $cod = $_SESSION['cod']; //id cod recuperato nel file di verifica
 ?>
 
