@@ -1,45 +1,43 @@
 <?php session_start(); ?>
-<?php include "include/errorReport.php";?>
-<?php include "loginsucess.php";?>
+<?php include "include/errorReport.php"; ?>
+<?php include "loginsucess.php"; ?>
 <!-- TOP part -->
-<?php include 'template/templateTOP.php';?>
+<?php include 'template/templateTOP.php'; ?>
 
-           <!--tabella css -->  
-    <div class="tabellapiccola">
-        <div class="rigatr">
+<!--tabella css -->  
+<div class="tabellapiccola">
+    <div class="rigatr">
+        <div class="colonnatd25"><div class="border"> 
 
-            <div class="colonnatd25"><div class="border"> 
+                <!--MENU part -->
+                <?php include 'template/templateMENU.php'; ?>
 
+            </div></div>
 
-<!--MENU part -->
-<?php include 'template/templateMENU.php';?>
+        <div class="colonnatd75"><div class="border"> 
 
-</div></div>
-     
-            <div class="colonnatd75"><div class="border"> 
-                    
-<h3>Seleziona componente:</h3>
-Seleziona il componente che verr� mostrato all'interno del magazzino:<br><br>
+                <h3>Seleziona componente:</h3>
+                Seleziona il componente che verr� mostrato all'interno del magazzino:<br><br>
 
-<form method="post" action="mappacode.php">
-      <select size="1" name="campo10">
-    <option>Condensatore</option>
-    <option>Resistenza</option>
-    <option>Diodo</option>
-    <option>Interruttore</option>
-    <option>Transistor</option>
-    <option>Fusibile</option>
-  </select><br>
-  
-<INPUT TYPE="submit" VALUE="Mostra nella mappa">
-  </form>
+                <form method="post" action="mappacode.php">
+                    <select size="1" name="campo10">
+                        <option>Condensatore</option>
+                        <option>Resistenza</option>
+                        <option>Diodo</option>
+                        <option>Interruttore</option>
+                        <option>Transistor</option>
+                        <option>Fusibile</option>
+                    </select><br>
 
-</div>
-        </div>
+                    <INPUT TYPE="submit" VALUE="Mostra nella mappa">
+                </form>
+
             </div>
         </div>
+    </div>
+</div>
 
 <br>
 
 <!-- Footer part -->
-<?php include 'template/templateFOOTER.php';?>
+<?php include 'template/templateFOOTER.php'; ?>
