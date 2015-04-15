@@ -18,12 +18,20 @@
 // includo i file necessari a collegarmi al db con relativo script di accesso
                 include "./include/config.php";
 
+                // Se la varibile non e' stata inizializzata viene reindirizzato alla home
+// Non dovrebbe mai accadere!!
+if(!isset($_REQUEST['campo11'])){
+header("location: ./accesso.php");
+return;
+}
+
+                
 // variabili
                 $totali = 0;
                 $totali1 = 0;
 
 // query per selezionare il componente scelta dall-utente
-                $query = mysql_query("SELECT * FROM componenti_elettronici WHERE nome='{$_POST['campo11']}'");
+                $query = mysql_query("SELECT * FROM componenti_elettronici WHERE nome='{$_REQUEST['campo11']}'");
 
 // calcolo componenti TOTALI selezionati dall`untente
                 while ($res = mysql_fetch_array($query)) {
@@ -40,7 +48,7 @@
 
 // printo risultati
                 echo "Numero totale di componenti nel magazzino: $totali1<br>";
-                echo "Numero totale di '{$_POST['campo11']}' nel magazzino: $totali";
+                echo "Numero totale di '{$_REQUEST['campo11']}' nel magazzino: $totali";
 
 // chiudo connessione con il DB
                 mysql_close();

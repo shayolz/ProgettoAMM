@@ -1,5 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-    "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
     <head>
         <link rel='stylesheet' href='./include/cssfile.css' type='text/css' >
@@ -22,11 +21,10 @@
                     </a>
                 </div>
             </div>
-
-
+            
             <br>
 
             <!--tabella css -->          
             <div class="tabella">
                 <div class="rigatr">
-                    <br>  
+                    <br>

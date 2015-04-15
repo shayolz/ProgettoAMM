@@ -28,37 +28,37 @@
 // e viene sommato un valore random per far si che gli oggetti poi mostrati nella mappa
 // non siano tutti nello stesso punto
 // Reparto A sezione 1 - 2 - 3
-                if ("{$_POST['campo2']}" == "A" && "{$_POST['campo3']}" == "1") {
+                if ("{$_REQUEST['campo2']}" == "A" && "{$_REQUEST['campo3']}" == "1") {
                     $posizionex = 70 + $randomValuex;
                     $posizioney = 230 + $randomValuey;
-                } else if ("{$_POST['campo2']}" == "A" && "{$_POST['campo3']}" == "2") {
+                } else if ("{$_REQUEST['campo2']}" == "A" && "{$_REQUEST['campo3']}" == "2") {
                     $posizionex = 70 + $randomValuex;
                     $posizioney = 360 + $randomValuey;
-                } else if ("{$_POST['campo2']}" == "A" && "{$_POST['campo3']}" == "3") {
+                } else if ("{$_REQUEST['campo2']}" == "A" && "{$_REQUEST['campo3']}" == "3") {
                     $posizionex = 70 + $randomValuex;
                     $posizioney = 510 + $randomValuey;
                 }
 
 // Reparto B sezione 1 - 2 - 3
-                if ("{$_POST['campo2']}" == "B" && "{$_POST['campo3']}" == "1") {
+                if ("{$_REQUEST['campo2']}" == "B" && "{$_REQUEST['campo3']}" == "1") {
                     $posizionex = 210 + $randomValuex;
                     $posizioney = 230 + $randomValuey;
-                } else if ("{$_POST['campo2']}" == "B" && "{$_POST['campo3']}" == "2") {
+                } else if ("{$_REQUEST['campo2']}" == "B" && "{$_REQUEST['campo3']}" == "2") {
                     $posizionex = 210 + $randomValuex;
                     $posizioney = 360 + $randomValuey;
-                } else if ("{$_POST['campo2']}" == "B" && "{$_POST['campo3']}" == "3") {
+                } else if ("{$_REQUEST['campo2']}" == "B" && "{$_REQUEST['campo3']}" == "3") {
                     $posizionex = 210 + $randomValuex;
                     $posizioney = 510 + $randomValuey;
                 }
 
 // Reparto C sezione 1 - 2 - 3
-                if ("{$_POST['campo2']}" == "C" && "{$_POST['campo3']}" == "1") {
+                if ("{$_REQUEST['campo2']}" == "C" && "{$_REQUEST['campo3']}" == "1") {
                     $posizionex = 330 + $randomValuex;
                     $posizioney = 230 + $randomValuey;
-                } else if ("{$_POST['campo2']}" == "C" && "{$_POST['campo3']}" == "2") {
+                } else if ("{$_REQUEST['campo2']}" == "C" && "{$_REQUEST['campo3']}" == "2") {
                     $posizionex = 330 + $randomValuex;
                     $posizioney = 360 + $randomValuey;
-                } else if ("{$_POST['campo2']}" == "C" && "{$_POST['campo3']}" == "3") {
+                } else if ("{$_REQUEST['campo2']}" == "C" && "{$_REQUEST['campo3']}" == "3") {
                     $posizionex = 330 + $randomValuex;
                     $posizioney = 510 + $randomValuey;
                 }
@@ -79,7 +79,7 @@
                 $nuovoId = $ultimoId + 1;
 
 // query per l`inserimento dei dati nel DB
-                $query = "INSERT INTO componenti_elettronici (id, nome,reparto,sezione,quantita,posizionescaffalex,posizionescaffaley) VALUES ('$nuovoId', '{$_POST['campo1']}', '{$_POST['campo2']}', '{$_POST['campo3']}','{$_POST['campo4']}', $posizionex, $posizioney)";
+                $query = "INSERT INTO componenti_elettronici (id, nome,reparto,sezione,quantita,posizionescaffalex,posizionescaffaley) VALUES ('$nuovoId', '{$_REQUEST['campo1']}', '{$_REQUEST['campo2']}', '{$_REQUEST['campo3']}','{$_REQUEST['campo4']}', $posizionex, $posizioney)";
 
                 if (mysql_query($query)) {
                     echo ("Inserimento riuscito!");

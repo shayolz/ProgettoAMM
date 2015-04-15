@@ -14,11 +14,11 @@
             <span class="dec1">Operatore</span>: Username: operatore, password: prova <br>
             <form id="login" action="logincode.php" method="post">
                 <fieldset id="inputs">
-                    <input id="username" name="username" type="text" placeholder="Username" autofocus required>
-                    <input id="password" name="password" type="password" placeholder="Password" required>
+                    Username:<input id="username" name="username" type="text" placeholder="Username" autofocus required> <br>
+                    Password:<input id="password" name="password" type="password" placeholder="Password" required>
                 </fieldset>
                 <fieldset id="actions">
-                    <input type="submit" id="submit" value="Collegati">
+                    <input type="submit" id="submit" name="login"value="Login">
                 </fieldset>
             </form>
 

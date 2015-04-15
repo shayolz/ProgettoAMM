@@ -100,15 +100,24 @@ span.dec3 {
     background-color: #088A08;
     color: #FFFFFF;
 }
-/* mappa */
 
+/* mappa */
 #mappa {
     position: absolute;
     top: 0px;
     left: 0px;
 }
-/* scrittamenu */
 
+/* credits */
+#credits {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: left;
+    font-size: 9px;
+}
+
+/* scrittamenu */
 #scrittaCAP {
     text-align: left;
     font-family: Verdana;

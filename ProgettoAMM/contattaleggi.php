@@ -19,34 +19,28 @@
 // includo i file necessari a collegarmi al db con relativo script di accesso
                 include "./include/config.php";
 
-                // Non dovrebbe mai accadere!!
-if(!isset($_REQUEST['campo1'])){
-header("location: ./accesso.php");
-return;
-}
-                
 // query per selezionare tutti i campi e generale l id unico
-                $queryselect = mysql_query("SELECT * FROM componenti_elettronici WHERE nome='{$_REQUEST['campo1']}'");
+                $queryselect = mysql_query("SELECT id,nome FROM contatta");
 
                 $elements = 0;
 
 // calcolo del nuovo id unico
                 while ($res = mysql_fetch_array($queryselect)) {
                     $elements = $elements + 1;
-                    echo "ID: $res[id], Reparto: $res[reparto], Sezione: $res[sezione], Quantita: $res[quantita]. <br>";
+                    echo "ID contact form: $res[id], Nome: $res[nome].<br>";
                 }
 
                 if ($elements != 0) {
 
                     echo" <br><br>
-    Inserisci l`ID del prodotto da rimuovere:<br><br>
-<form onsubmit='return Modulo()' name='myForm' method='post' action='rimuovicodeid.php'>
+    Inserisci l`ID del contact form che si vuole leggere:<br><br>
+<form onsubmit='return Modulo()' name='myForm' method='post' action='contattaleggiform.php'>
   
   <span class='dec2'>ID univoco</span>
 <INPUT TYPE='text' NAME='campo4'>
 <br>
 
-<INPUT TYPE='submit' id='checkimput' value='Rimuovi dal database'>
+<INPUT TYPE='submit' id='checkimput' value='Leggi form'>
   </form>
     ";
                 } else {

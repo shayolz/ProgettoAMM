@@ -25,14 +25,17 @@ return;
 }
 
 // query per l`inserimento dei dati nel DB
-                $query = "DELETE FROM componenti_elettronici WHERE id = '{$_REQUEST['campo4']}'";
-
-                if (mysql_query($query)) {
-                    echo ("Prodotto rimosso con successo dal database!");
-                } else {
-                    echo ("Errore! Controllate se l`id esiste!");
+                $queryselect = mysql_query("SELECT * FROM contatta WHERE id = '{$_REQUEST['campo4']}'");
+$elements = 0;
+                while ($res = mysql_fetch_array($queryselect)) {
+                    $elements = $elements + 1;
+                    echo "ID contact form: $res[id], Nome: $res[nome].<br>";
+                                    echo "Testo: $res[testo].<br>";
+                                    
                 }
 
+if ($elements == 0) {
+    echo 'Non ci sono testi con questo id univoco!';}
 // chiudiamo la connessione con il db
                 mysql_close();
                 ?>

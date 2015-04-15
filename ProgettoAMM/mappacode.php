@@ -10,10 +10,16 @@
 // includo i file necessari a collegarmi al db con relativo script di accesso
     include "./include/config.php";
 
+    // Non dovrebbe mai accadere!!
+if(!isset($_REQUEST['campo10'])){
+header("location: ./accesso.php");
+return;
+}
+    
     echo "<div id='mappa'><img src='./images/map.jpg'></div>";
 
 // query per selezionare l`oggetto richiesto dall-utente
-    $query = mysql_query("SELECT * FROM componenti_elettronici WHERE nome='{$_POST['campo10']}'");
+    $query = mysql_query("SELECT * FROM componenti_elettronici WHERE nome='{$_REQUEST['campo10']}'");
 
     $posizionescritta = 50;
 

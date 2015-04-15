@@ -2,7 +2,7 @@
 <?php include "include/errorReport.php"; ?>
 <!-- TOP part -->
 <?php include 'template/templateTOP.php'; ?>
-<!--tabella css -->  
+
 <div class="tabellapiccola">
     <div class="rigatr">
         <div class="colonnatd25"><div class="border"> 
@@ -18,19 +18,28 @@
 // includo i file necessari a collegarmi al db con relativo script di accesso
                 include "./include/config.php";
 
-// Non dovrebbe mai accadere!!
-if(!isset($_REQUEST['campo4'])){
+                // Non dovrebbe mai accadere!!
+if(!isset($_REQUEST['campo01']) || !isset($_REQUEST['campo02']) || !isset($_REQUEST['campo03'])){
 header("location: ./accesso.php");
 return;
 }
-
+                
+                // Prima dell'inserimento controllo se l'email e' valida
+if(!filter_var($_REQUEST['campo03'],  FILTER_VALIDATE_EMAIL))  
+        {  
+//  il  valore non  e'  ammissibile blocco l'insert
+        echo '<script language=javascript>document.location.href="contatta.php?msg=emailerrata"</script>';
+        return;
+    }
+  
 // query per l`inserimento dei dati nel DB
-                $query = "DELETE FROM componenti_elettronici WHERE id = '{$_REQUEST['campo4']}'";
+    // l'id e' auto incrementale da database
+                $query = "INSERT INTO contatta (nome,testo,email) VALUES ('{$_REQUEST['campo01']}', '{$_REQUEST['campo02']}', '{$_REQUEST['campo03']}')";
 
                 if (mysql_query($query)) {
-                    echo ("Prodotto rimosso con successo dal database!");
+                    echo ("Inserimento riuscito!");
                 } else {
-                    echo ("Errore! Controllate se l`id esiste!");
+                    echo ("Errore nell'inserimento! Si prega di riprovare!");
                 }
 
 // chiudiamo la connessione con il db
@@ -41,8 +50,7 @@ return;
         </div>
     </div>
 </div>
-
 <br>
 
 <!-- Footer part -->
-<?php include 'template/templateFOOTER.php'; ?>
+                <?php include 'template/templateFOOTER.php'; ?>

@@ -16,5 +16,6 @@ $cod = $_SESSION['cod']; //id cod recuperato nel file di verifica
 
 3. <a href="./mappa.php">Collocazione prodotto</a> <br>
 4. <a href="./totaleprodotti.php">Totale prodotti</a> <br>
-5. <a href="./documentazione.php">Documentazione (Cosa fa?)</a> <br>
-6. <a href="./logout.php">Logout</a> <br>
+5. <a href="./contatta.php">Contatta staff</a> <br>
+6. <a href="./documentazione.php">Documentazione (Cosa fa?)</a> <br>
+7. <a href="./logout.php">Logout</a> <br>

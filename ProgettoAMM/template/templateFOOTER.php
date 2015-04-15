@@ -41,6 +41,6 @@
     </div>
 </div>
 
-
+<div id="credits">PROGETTO - AMMINISTRAZIONE DI SISTEMI</div>
 </div> <!-- main container -->
 </body></html>
