@@ -1,7 +1,14 @@
 <?php session_start(); ?>
 <?php include "include/errorReport.php"; ?>
+<?php
+include_once './view/destinatario.php';
+include_once './view/ViewDescriptor.php';
+?>
 <!-- TOP part -->
-<?php include 'template/templateTOP.php'; ?>
+<?php
+$top = $vd->getTopFile();
+require "$top";
+?>
 <!--tabella css -->          
 <div class="tabella">
     <div class="rigatr">
@@ -35,4 +42,7 @@
 </div>
 <br>
 <!-- Footer part -->
-<?php include 'template/templateFOOTER.php'; ?>
+<?php
+$footer = $vd->getFooterFile();
+require "$footer";
+?>

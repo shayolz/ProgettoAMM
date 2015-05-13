@@ -13,8 +13,8 @@
  */
 
 // includo i file necessari a collegarmi al db con relativo script di accesso
-include "./include/config.php";
-
+                include "./model/Database.php";
+                
 // Ho fatto che gli utenti sono salvati nel database
 // quindi il sistema controlla se l`id e la pass sono corretti
 // attraverso una connessione con il database.
@@ -43,8 +43,8 @@ $password = mysql_real_escape_string($_REQUEST['password']); //senza sha1 (decri
 
 // query da eseguire sul DB per trovare l`utente
 $query = "SELECT * FROM login WHERE username = '$username' AND password = '$password' ";
-$ris = mysql_query($query, $connessione) or die(mysql_error());
-$riga = mysql_fetch_array($ris);
+$ris = $mysqli->query($query, $connessione) or die(mysql_error());
+$riga = $ris->fetch_array();
 
 // Prelevo l'identificativo dell'utente se l`id e la pass coincidono
 $cod = $riga['username'];
@@ -83,6 +83,6 @@ if ($trovato === 1) {
     echo '<script language=javascript>document.location.href="index.php?msg=loginfailed"</script>';
 }
 
-// chiudiamo la connessione con il DB
-mysql_close();
+               //Chiusura della connessione
+               $mysqli->close();
 ?>

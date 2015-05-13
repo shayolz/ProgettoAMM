@@ -144,6 +144,12 @@ span.dec3 {
     font-size: 19px;
     font-weight: bold;
 }
+#testocolorato {
+    font-weight: bold;
+    background-color: #0066b9;
+    color: #FFFFFF;
+}
+
 .scrittaLOGO {
     text-align: center;
 }

@@ -1,8 +1,15 @@
 <?php session_start(); ?>
 <?php include "include/errorReport.php"; ?>
+<?php
+include_once './view/destinatario.php';
+include_once './view/ViewDescriptor.php';
+?>
 <?php include "loginsucess.php"; ?>
 <!-- TOP part -->
-<?php include 'template/templateTOP.php'; ?>
+<?php
+$top = $vd->getTopFile();
+require "$top";
+?>
 
 <!--tabella css -->  
 <div class="tabellapiccola">
@@ -15,16 +22,16 @@
             </div></div>
 
         <div class="colonnatd75"><div class="border"> 
-                
-                <?php
-echo "<h2>Menu:</h2> <br>";
 
-if ($_SESSION["admin"]) {
-    echo "(Solo gli amministratori possono leggere)<br> <A HREF='contattaleggi.php'> Clicca qui per leggere i messaggi.</a> <br>";
-} 
-?>
-                
-                
+                <?php
+                echo "<h2>Menu:</h2> <br>";
+
+                if ($_SESSION["admin"]) {
+                    echo "(Solo gli amministratori possono leggere)<br> <A HREF='contattaleggi.php'> Clicca qui per leggere i messaggi.</a> <br>";
+                }
+                ?>
+
+
                 <!--form part, javascript Modulo() controlla se i dati inseriti sono validi -->
                 <h3>Invia un messaggio all'amministratore:</h3>
                 Compila questo form per inviare un messaggio direttamente agli amministratori.<br><br>
@@ -58,4 +65,7 @@ if (!empty($_GET) && $_GET['msg'] == "emailerrata") {
 ?>
 
 <!-- Footer part -->
-<?php include 'template/templateFOOTER.php'; ?>
+<?php
+$footer = $vd->getFooterFile();
+require "$footer";
+?>

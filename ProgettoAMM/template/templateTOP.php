@@ -5,7 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" >
         <meta name="Keywords" content="" >
         <meta name="Description" content="" >
-        <title>Magazzino</title>
+        <title><?= $vd->getTitolo() ?></title>
 
         <script src="include/checkform.js"></script>
     </head>
@@ -21,7 +21,7 @@
                     </a>
                 </div>
             </div>
-            
+
             <br>
 
             <!--tabella css -->          

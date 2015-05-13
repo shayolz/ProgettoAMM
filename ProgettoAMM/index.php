@@ -1,8 +1,15 @@
 <?php session_start(); ?>
 <?php include "include/errorReport.php"; ?>
+<?php
+include_once './view/destinatario.php';
+include_once './view/ViewDescriptor.php';
+?>
 <?php include "loginredirect.php"; ?>
 <!-- TOP part -->
-<?php include 'template/templateTOP.php'; ?>
+<?php
+$top = $vd->getTopFile();
+require "$top";
+?>
 
 <br>
 
@@ -32,13 +39,16 @@
 <br>
 
 <!-- Footer part -->
-<?php include 'template/templateFOOTER.php'; ?>
+<?php
+$footer = $vd->getFooterFile();
+require "$footer";
+?>
 
 <?php
 // Se il login e' errato allora interviene il javascript con un messaggio di warning
 // logincode.php rimanda a msg loginfailed
 
-if (!empty($_GET) && $_GET['msg'] == "loginfailed") {
+if (isset($_GET['msg']) && $_GET['msg'] == "loginfailed") {
     echo '<script language=javascript>loginFailed()</script>';
 }
 ?>

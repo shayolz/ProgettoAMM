@@ -1,7 +1,14 @@
 <?php session_start(); ?>
 <?php include "include/errorReport.php"; ?>
+<?php
+include_once './view/destinatario.php';
+include_once './view/ViewDescriptor.php';
+?>
 <!-- TOP part -->
-<?php include 'template/templateTOP.php'; ?>
+<?php
+$top = $vd->getTopFile();
+require "$top";
+?>
 <!--tabella css -->  
 <div class="tabellapiccola">
     <div class="rigatr">
@@ -16,28 +23,27 @@
 
                 <?php
 // includo i file necessari a collegarmi al db con relativo script di accesso
-                include "./include/config.php";
-
+                include "./model/Database.php";
 // Non dovrebbe mai accadere!!
-if(!isset($_REQUEST['campo4'])){
-header("location: ./accesso.php");
-return;
-}
-
-// query per l`inserimento dei dati nel DB
-                $queryselect = mysql_query("SELECT * FROM contatta WHERE id = '{$_REQUEST['campo4']}'");
-$elements = 0;
-                while ($res = mysql_fetch_array($queryselect)) {
-                    $elements = $elements + 1;
-                    echo "ID contact form: $res[id], Nome: $res[nome].<br>";
-                                    echo "Testo: $res[testo].<br>";
-                                    
+                if (!isset($_REQUEST['campo4'])) {
+                    header("location: ./accesso.php");
+                    return;
                 }
 
-if ($elements == 0) {
-    echo 'Non ci sono testi con questo id univoco!';}
-// chiudiamo la connessione con il db
-                mysql_close();
+// query per l`inserimento dei dati nel DB
+                $queryselect = $mysqli->query("SELECT * FROM contatta WHERE id = '{$_REQUEST['campo4']}'");
+                $elements = 0;
+                while ($res = $queryselect->fetch_array()) {
+                    $elements = $elements + 1;
+                    echo "ID contact form: $res[id], Nome: $res[nome], Email: $res[email]<br>";
+                    echo "Testo: <div id='testocolorato'>$res[testo].</div> <br>";
+                }
+
+                if ($elements == 0) {
+                    echo 'Non ci sono testi con questo id univoco!';
+                }
+                //Chiusura della connessione
+                $mysqli->close();
                 ?>
 
             </div>
@@ -48,4 +54,7 @@ if ($elements == 0) {
 <br>
 
 <!-- Footer part -->
-<?php include 'template/templateFOOTER.php'; ?>
+<?php
+$footer = $vd->getFooterFile();
+require "$footer";
+?>

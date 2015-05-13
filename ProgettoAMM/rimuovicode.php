@@ -1,7 +1,14 @@
 <?php session_start(); ?>
 <?php include "include/errorReport.php"; ?>
+<?php
+include_once './view/destinatario.php';
+include_once './view/ViewDescriptor.php';
+?>
 <!-- TOP part -->
-<?php include 'template/templateTOP.php'; ?>
+<?php
+$top = $vd->getTopFile();
+require "$top";
+?>
 
 <!--tabella css -->  
 <div class="tabellapiccola">
@@ -17,21 +24,21 @@
 
                 <?php
 // includo i file necessari a collegarmi al db con relativo script di accesso
-                include "./include/config.php";
-
-                // Non dovrebbe mai accadere!!
-if(!isset($_REQUEST['campo1'])){
-header("location: ./accesso.php");
-return;
-}
+                include "./model/Database.php";
                 
+                // Non dovrebbe mai accadere!!
+                if (!isset($_REQUEST['campo1'])) {
+                    header("location: ./accesso.php");
+                    return;
+                }
+
 // query per selezionare tutti i campi e generale l id unico
-                $queryselect = mysql_query("SELECT * FROM componenti_elettronici WHERE nome='{$_REQUEST['campo1']}'");
+                $queryselect = $mysqli->query("SELECT * FROM componenti_elettronici WHERE nome='{$_REQUEST['campo1']}'");
 
                 $elements = 0;
 
 // calcolo del nuovo id unico
-                while ($res = mysql_fetch_array($queryselect)) {
+                while ($res = $queryselect->fetch_array()) {
                     $elements = $elements + 1;
                     echo "ID: $res[id], Reparto: $res[reparto], Sezione: $res[sezione], Quantita: $res[quantita]. <br>";
                 }
@@ -58,8 +65,8 @@ return;
 //else{
                 //  echo ("Errore nell'inserimento! Si prega di riprovare!");
 //}
-// chiudiamo la connessione con il db
-                mysql_close();
+                //Chiusura della connessione
+                $mysqli->close();
                 ?>
 
             </div>
@@ -70,4 +77,7 @@ return;
 <br>
 
 <!-- Footer part -->
-<?php include 'template/templateFOOTER.php'; ?>
+<?php
+$footer = $vd->getFooterFile();
+require "$footer";
+?>

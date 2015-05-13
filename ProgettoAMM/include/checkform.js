@@ -6,13 +6,13 @@ function Modulo() {
 
     // Controllo se ha lasciato vuoto e inserito 0
     if (x == null || x == "" || x == "0") {
-        alert("Campo quantit� non pu� essere vuoto o uguale a 0!");
+        alert("Campo quantita' non puo' essere vuoto o uguale a 0!");
         return false;
     }
 
     // Controllo se ha inserito un numero
     if (isNaN(x)) {
-        alert("Devi inserire un numero nel campo quantit�!");
+        alert("Devi inserire un numero nel campo quantita'!");
         return false;
     }
 
@@ -20,10 +20,10 @@ function Modulo() {
     return true;
 }
 
-function loginFailed() {   
+function loginFailed() {
     alert("Login errato, riprova!");
 }
 
-function emailErrata() {   
+function emailErrata() {
     alert("Email non corretta, riprova!");
 }

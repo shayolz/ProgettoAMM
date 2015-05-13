@@ -1,7 +1,14 @@
 <?php session_start(); ?>
 <?php include "include/errorReport.php"; ?>
+<?php
+include_once './view/destinatario.php';
+include_once './view/ViewDescriptor.php';
+?>
 <!-- TOP part -->
-<?php include 'template/templateTOP.php'; ?>
+<?php
+$top = $vd->getTopFile();
+require "$top";
+?>
 
 <div class="tabellapiccola">
     <div class="rigatr">
@@ -16,34 +23,33 @@
 
                 <?php
 // includo i file necessari a collegarmi al db con relativo script di accesso
-                include "./include/config.php";
+                include "./model/Database.php";
 
                 // Non dovrebbe mai accadere!!
-if(!isset($_REQUEST['campo01']) || !isset($_REQUEST['campo02']) || !isset($_REQUEST['campo03'])){
-header("location: ./accesso.php");
-return;
-}
-                
+                if (!isset($_REQUEST['campo01']) || !isset($_REQUEST['campo02']) || !isset($_REQUEST['campo03'])) {
+                    header("location: ./accesso.php");
+                    return;
+                }
+
                 // Prima dell'inserimento controllo se l'email e' valida
-if(!filter_var($_REQUEST['campo03'],  FILTER_VALIDATE_EMAIL))  
-        {  
+                if (!filter_var($_REQUEST['campo03'], FILTER_VALIDATE_EMAIL)) {
 //  il  valore non  e'  ammissibile blocco l'insert
-        echo '<script language=javascript>document.location.href="contatta.php?msg=emailerrata"</script>';
-        return;
-    }
-  
+                    echo '<script language=javascript>document.location.href="contatta.php?msg=emailerrata"</script>';
+                    return;
+                }
+
 // query per l`inserimento dei dati nel DB
-    // l'id e' auto incrementale da database
+                // l'id e' auto incrementale da database
                 $query = "INSERT INTO contatta (nome,testo,email) VALUES ('{$_REQUEST['campo01']}', '{$_REQUEST['campo02']}', '{$_REQUEST['campo03']}')";
 
-                if (mysql_query($query)) {
+                if ($mysqli->query($query)) {
                     echo ("Inserimento riuscito!");
                 } else {
                     echo ("Errore nell'inserimento! Si prega di riprovare!");
                 }
 
-// chiudiamo la connessione con il db
-                mysql_close();
+                //Chiusura della connessione
+                $mysqli->close();
                 ?>
 
             </div>
@@ -53,4 +59,7 @@ if(!filter_var($_REQUEST['campo03'],  FILTER_VALIDATE_EMAIL))
 <br>
 
 <!-- Footer part -->
-                <?php include 'template/templateFOOTER.php'; ?>
+<?php
+$footer = $vd->getFooterFile();
+require "$footer";
+?>

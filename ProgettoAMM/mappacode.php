@@ -8,22 +8,22 @@
     </head>
     <?php
 // includo i file necessari a collegarmi al db con relativo script di accesso
-    include "./include/config.php";
-
+                include "./model/Database.php";
+                
     // Non dovrebbe mai accadere!!
-if(!isset($_REQUEST['campo10'])){
-header("location: ./accesso.php");
-return;
-}
-    
+    if (!isset($_REQUEST['campo10'])) {
+        header("location: ./accesso.php");
+        return;
+    }
+
     echo "<div id='mappa'><img src='./images/map.jpg'></div>";
 
 // query per selezionare l`oggetto richiesto dall-utente
-    $query = mysql_query("SELECT * FROM componenti_elettronici WHERE nome='{$_REQUEST['campo10']}'");
+    $query = $mysqli->query("SELECT * FROM componenti_elettronici WHERE nome='{$_REQUEST['campo10']}'");
 
     $posizionescritta = 50;
 
-    while ($res = mysql_fetch_array($query)) {
+    while ($res = $query->fetch_array()) {
         // x e y prendono i valori salvati nel DB tramide inseriscicode.php
         $x = $res['posizionescaffalex'];
         $y = $res['posizionescaffaley'];
@@ -41,8 +41,8 @@ return;
     echo "<div style=position:absolute;top:0px;left:420px>Torna alla home page -> <html> <a href=./accesso.php>Click here</a></div>";
     echo "<div style=position:absolute;top:20px;left:420px>(Lasciare il cursore sui pallini verdi per maggiori informazioni)</div>";
 
-// chiudiamo la connessione con il DB
-    mysql_close();
+    //Chiusura della connessione
+    $mysqli->close();
     ?>
 
 </body>

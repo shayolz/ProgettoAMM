@@ -3,7 +3,7 @@
 
 // Protezione in caso un utenti cerchi ad accedere direttamente ai files
 // senza passare per il login.
-// Se non c'� la sessione registrata
+// Se non c'e' la sessione registrata
 if (empty($_SESSION['loginsuccess'])) {
     echo "<h1>Area riservata, accesso negato.</h1>";
     echo "Per effettuare il login clicca <a href='index.php'><font color='blue'>qui</font></a>";

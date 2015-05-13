@@ -1,8 +1,15 @@
 <?php session_start(); ?>
 <?php include "include/errorReport.php"; ?>
+<?php
+include_once './view/destinatario.php';
+include_once './view/ViewDescriptor.php';
+?>
 <?php include "loginsucess.php"; ?>
 <!-- TOP part -->
-<?php include 'template/templateTOP.php'; ?>
+<?php
+$top = $vd->getTopFile();
+require "$top";
+?>
 
 <!--tabella css -->  
 <div class="tabellapiccola">
@@ -17,7 +24,7 @@
         <div class="colonnatd75"><div class="border"> 
 
                 <h3>Seleziona componente:</h3>
-                Seleziona il componente che verr� mostrato all'interno del magazzino:<br><br>
+                Seleziona il componente che verra' mostrato all'interno del magazzino:<br><br>
 
                 <form method="post" action="mappacode.php">
                     <select size="1" name="campo10">
@@ -40,4 +47,7 @@
 <br>
 
 <!-- Footer part -->
-<?php include 'template/templateFOOTER.php'; ?>
+<?php
+$footer = $vd->getFooterFile();
+require "$footer";
+?>

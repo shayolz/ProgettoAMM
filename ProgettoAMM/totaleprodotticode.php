@@ -1,7 +1,14 @@
 <?php session_start(); ?>
 <?php include "include/errorReport.php"; ?>
+<?php
+include_once './view/destinatario.php';
+include_once './view/ViewDescriptor.php';
+?>
 <!-- TOP part -->
-<?php include 'template/templateTOP.php'; ?>
+<?php
+$top = $vd->getTopFile();
+require "$top";
+?>
 
 <div class="tabellapiccola">
     <div class="rigatr">
@@ -16,33 +23,33 @@
 
                 <?php
 // includo i file necessari a collegarmi al db con relativo script di accesso
-                include "./include/config.php";
-
+                include "./model/Database.php";
+                
                 // Se la varibile non e' stata inizializzata viene reindirizzato alla home
 // Non dovrebbe mai accadere!!
-if(!isset($_REQUEST['campo11'])){
-header("location: ./accesso.php");
-return;
-}
+                if (!isset($_REQUEST['campo11'])) {
+                    header("location: ./accesso.php");
+                    return;
+                }
 
-                
+
 // variabili
                 $totali = 0;
                 $totali1 = 0;
 
 // query per selezionare il componente scelta dall-utente
-                $query = mysql_query("SELECT * FROM componenti_elettronici WHERE nome='{$_REQUEST['campo11']}'");
+                $query = $mysqli->query("SELECT * FROM componenti_elettronici WHERE nome='{$_REQUEST['campo11']}'");
 
 // calcolo componenti TOTALI selezionati dall`untente
-                while ($res = mysql_fetch_array($query)) {
+                while ($res = $query->fetch_array()) {
                     $totali = $totali + $res['quantita'];
                 }
 
 // query selezionare tutti i componenti elettronici
-                $query1 = mysql_query("SELECT * FROM componenti_elettronici");
+                $query1 = $mysqli->query("SELECT * FROM componenti_elettronici");
 
 // calcolo componenti TOTALI nell`intero magazzino
-                while ($res2 = mysql_fetch_array($query1)) {
+                while ($res2 = $query1->fetch_array()) {
                     $totali1 = $totali1 + $res2['quantita'];
                 }
 
@@ -50,10 +57,10 @@ return;
                 echo "Numero totale di componenti nel magazzino: $totali1<br>";
                 echo "Numero totale di '{$_REQUEST['campo11']}' nel magazzino: $totali";
 
-// chiudo connessione con il DB
-                mysql_close();
+                //Chiusura della connessione
+                $mysqli->close();
                 ?>
-                
+
             </div>
         </div>
     </div>
@@ -62,4 +69,7 @@ return;
 <br>
 
 <!-- Footer part -->
-<?php include 'template/templateFOOTER.php'; ?>
+<?php
+$footer = $vd->getFooterFile();
+require "$footer";
+?>
