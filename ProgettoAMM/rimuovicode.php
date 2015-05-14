@@ -31,13 +31,16 @@ require "$top";
                     header("location: ./accesso.php");
                     return;
                 }
-
-// query per selezionare tutti i campi e generale l id unico
+                
+                // setto l'autocommit a false
+                $mysqli->autocommit(false);
+                
+                // query per selezionare tutti i campi e generale l id unico
                 $queryselect = $mysqli->query("SELECT * FROM componenti_elettronici WHERE nome='{$_REQUEST['campo1']}'");
 
                 $elements = 0;
 
-// calcolo del nuovo id unico
+                // calcolo del nuovo id unico
                 while ($res = $queryselect->fetch_array()) {
                     $elements = $elements + 1;
                     echo "ID: $res[id], Reparto: $res[reparto], Sezione: $res[sezione], Quantita: $res[quantita]. <br>";
@@ -67,6 +70,10 @@ require "$top";
 //}
                 //Chiusura della connessione
                 $mysqli->close();
+                
+                if(Database::$db_debug == "true"){
+                  echo "DEBUG MODE: Connessione chiusa.<br>";
+                }
                 ?>
 
             </div>

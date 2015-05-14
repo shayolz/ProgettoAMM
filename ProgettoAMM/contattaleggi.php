@@ -60,6 +60,10 @@ require "$top";
 //}
                 //Chiusura della connessione
                 $mysqli->close();
+                
+                if(Database::$db_debug == "true"){
+                  echo "DEBUG MODE: Connessione chiusa.<br>";
+                }
                 ?>
 
             </div>

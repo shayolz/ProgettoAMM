@@ -88,13 +88,18 @@ require "$top";
                 $query = "INSERT INTO componenti_elettronici (id, nome,reparto,sezione,quantita,posizionescaffalex,posizionescaffaley) VALUES ('$nuovoId', '{$_REQUEST['campo1']}', '{$_REQUEST['campo2']}', '{$_REQUEST['campo3']}','{$_REQUEST['campo4']}', $posizionex, $posizioney)";
 
                 if ($mysqli->query($query)) {
-                    echo ("Inserimento riuscito!");
+                    echo ("Inserimento riuscito! </br>");
                 } else {
-                    echo ("Errore nell'inserimento! Si prega di riprovare!");
+                    echo ("Errore nell'inserimento! Si prega di riprovare!</br>");
                 }
 
                 //Chiusura della connessione
                 $mysqli->close();
+                
+                if(Database::$db_debug == "true"){
+                  echo "DEBUG MODE: Connessione chiusa.<br>";
+                }
+                
                 ?>
 
             </div>

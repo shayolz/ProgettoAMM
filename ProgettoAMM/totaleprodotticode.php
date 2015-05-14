@@ -55,10 +55,14 @@ require "$top";
 
 // printo risultati
                 echo "Numero totale di componenti nel magazzino: $totali1<br>";
-                echo "Numero totale di '{$_REQUEST['campo11']}' nel magazzino: $totali";
+                echo "Numero totale di '{$_REQUEST['campo11']}' nel magazzino: $totali <br>";
 
                 //Chiusura della connessione
                 $mysqli->close();
+                
+                if(Database::$db_debug == "true"){
+                  echo "DEBUG MODE: Connessione chiusa.<br>";
+                }
                 ?>
 
             </div>
