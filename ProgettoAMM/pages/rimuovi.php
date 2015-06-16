@@ -1,4 +1,12 @@
 <?php
+// Evitiamo che il file venga richiesto direttamente
+if(__FILE__ == $_SERVER['SCRIPT_FILENAME'])
+{
+  echo '<script language=javascript>document.location.href="../index.php?page=accesso"</script>';
+  exit();
+}
+?>
+<?php
 include_once './view/magazzino.php';
 include_once './view/ViewDescriptor.php';
 ?>
@@ -28,7 +36,7 @@ require "$top";
                 <h3>Compila il form:</h3>
                 Seleziona il componente che vuoi rimuovere dal magazzino.<br>
                 (Verra' mostrata la lista di tutti i componenti selezionati)<br><br>
-                <form onsubmit="return Modulo()" name="myForm" method="post" action="rimuovicode.php">
+                <form onsubmit="return Modulo()" name="myForm" method="post" action="index.php?page=rimuovicode">
                     <span class="dec2">Nome</span>
                     <select size="1" name="campo1">
                         <option>Condensatore</option>

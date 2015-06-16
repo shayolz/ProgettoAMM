@@ -1,4 +1,12 @@
 <?php
+// Evitiamo che il file venga richiesto direttamente
+if(__FILE__ == $_SERVER['SCRIPT_FILENAME'])
+{
+  echo '<script language=javascript>document.location.href="../index.php?page=accesso"</script>';
+  exit();
+}
+?>
+<?php
 include_once './view/magazzino.php';
 include_once './view/ViewDescriptor.php';
 ?>
@@ -27,7 +35,7 @@ require "$top";
                 <!--form part, javascript Modulo() controlla se i dati inseriti sono validi -->
                 <h3>Compila il form:</h3>
                 Inserisci i dati che verranno salvati nel database, il/i componente/i verranno registrati nel sistema.<br><br>
-                <form onsubmit="return Modulo()" name="myForm" method="post" action="inseriscicode.php">
+                <form onsubmit="return Modulo()" name="myForm" method="post" action="index.php?page=inseriscicode">
                     <span class="dec2">Nome</span>
                     <select size="1" name="campo1">
                         <option>Condensatore</option>

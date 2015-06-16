@@ -1,4 +1,12 @@
 <?php
+// Evitiamo che il file venga richiesto direttamente
+if(__FILE__ == $_SERVER['SCRIPT_FILENAME'])
+{
+  echo '<script language=javascript>document.location.href="../index.php?page=accesso"</script>';
+  exit();
+}
+?>
+<?php
 include_once './view/magazzino.php';
 include_once './view/ViewDescriptor.php';
 ?>
@@ -28,7 +36,7 @@ require "$top";
                 echo "<h2>Menu:</h2> <br>";
 
                 if ($_SESSION["admin"]) {
-                    echo "(Solo gli amministratori possono leggere)<br> <A HREF='contattaleggi.php'> Clicca qui per leggere i messaggi.</a> <br>";
+                    echo "(Solo gli amministratori possono leggere)<br> <A HREF='index.php?page=contattaleggi'> Clicca qui per leggere i messaggi.</a> <br>";
                 }
                 ?>
 

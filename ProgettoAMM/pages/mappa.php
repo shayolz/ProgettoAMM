@@ -1,4 +1,12 @@
 <?php
+// Evitiamo che il file venga richiesto direttamente
+if(__FILE__ == $_SERVER['SCRIPT_FILENAME'])
+{
+  echo '<script language=javascript>document.location.href="../index.php?page=accesso"</script>';
+  exit();
+}
+?>
+<?php
 include_once './view/magazzino.php';
 include_once './view/ViewDescriptor.php';
 ?>
@@ -27,7 +35,7 @@ require "$top";
                 <h3>Seleziona componente:</h3>
                 Seleziona il componente che verra' mostrato all'interno del magazzino:<br><br>
 
-                <form method="post" action="mappacode.php">
+                <form method="post" action="index.php?page=mappacode">
                     <select size="1" name="campo10">
                         <option>Condensatore</option>
                         <option>Resistenza</option>

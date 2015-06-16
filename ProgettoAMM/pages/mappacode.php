@@ -1,3 +1,11 @@
+<?php
+// Evitiamo che il file venga richiesto direttamente
+if(__FILE__ == $_SERVER['SCRIPT_FILENAME'])
+{
+  echo '<script language=javascript>document.location.href="../index.php?page=accesso"</script>';
+  exit();
+}
+?>
 <?php include "./include/loginsuccess.php"; ?>
 <html>
     <head>
@@ -53,7 +61,7 @@
 
 
     // scritte
-    echo "<div style=position:absolute;top:0px;left:420px>Torna alla home page -> <html> <a href=./pages/accesso.php>Click here</a></div>";
+    echo "<div style=position:absolute;top:0px;left:420px>Torna alla home page -> <html> <a href=index.php?page=accesso>Click here</a></div>";
     echo "<div style=position:absolute;top:20px;left:420px>(Lasciare il cursore sui pallini verdi per maggiori informazioni)</div>";
 
     // liberiamo le risorse dello statement

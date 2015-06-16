@@ -17,7 +17,7 @@ require "$top";
             <h3><div class="scrittaLOGO">Inserisci le credenziali per accedere al sistema</div></h3>
             <span class="dec1">Amministratore</span>: Username: amministratore, password: prova<br>
             <span class="dec1">Operatore</span>: Username: operatore, password: prova <br>
-            <form id="login" action="./pages/logincode.php" method="post">
+            <form id="login" action="index.php?page=logincode" method="post">
                 <fieldset id="inputs">
                     Username:<input id="username" name="username" type="text" placeholder="Username" autofocus required> <br>
                     Password:<input id="password" name="password" type="password" placeholder="Password" required>

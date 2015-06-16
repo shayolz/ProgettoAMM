@@ -1,4 +1,12 @@
 <?php
+// Evitiamo che il file venga richiesto direttamente
+if(__FILE__ == $_SERVER['SCRIPT_FILENAME'])
+{
+  echo '<script language=javascript>document.location.href="../index.php?page=accesso"</script>';
+  exit();
+}
+?>
+<?php
 include_once './view/magazzino.php';
 include_once './view/ViewDescriptor.php';
 ?>
@@ -41,7 +49,7 @@ require "$top";
 
                     echo" <br><br>
     Inserisci l`ID del contact form che si vuole leggere:<br><br>
-<form onsubmit='return Modulo()' name='myForm' method='post' action='contattaleggiform.php'>
+<form onsubmit='return Modulo()' name='myForm' method='post' action='index.php?page=contattaleggiform'>
   
   <span class='dec2'>ID univoco</span>
 <INPUT TYPE='text' NAME='campo4'>

@@ -34,7 +34,23 @@ class FrontController {
                     $controller = new SimpleController();
                     $controller->handleInput($request);
                     break;
+                case "rimuovicode":
+                    $controller = new SimpleController();
+                    $controller->handleInput($request);
+                    break;
+                case "rimuovicodeid":
+                    $controller = new SimpleController();
+                    $controller->handleInput($request);
+                    break;
                 case "inserisci":
+                    $controller = new SimpleController();
+                    $controller->handleInput($request);
+                    break;
+                case "inseriscicode":
+                    $controller = new SimpleController();
+                    $controller->handleInput($request);
+                    break;
+                case "logincode":
                     $controller = new SimpleController();
                     $controller->handleInput($request);
                     break;
@@ -42,7 +58,15 @@ class FrontController {
                     $controller = new SimpleController();
                     $controller->handleInput($request);
                     break;
+                case "mappacode":
+                    $controller = new SimpleController();
+                    $controller->handleInput($request);
+                    break;
                 case "totaleprodotti":
+                    $controller = new SimpleController();
+                    $controller->handleInput($request);
+                    break;
+                case "totaleprodotticode":
                     $controller = new SimpleController();
                     $controller->handleInput($request);
                     break;
@@ -51,6 +75,14 @@ class FrontController {
                     $controller->handleInput($request);
                     break;
                 case "contattacode":
+                    $controller = new SimpleController();
+                    $controller->handleInput($request);
+                    break;
+                case "contattaleggi":
+                    $controller = new SimpleController();
+                    $controller->handleInput($request);
+                    break;
+                case "contattaleggiform":
                     $controller = new SimpleController();
                     $controller->handleInput($request);
                     break;
