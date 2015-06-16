@@ -10,7 +10,7 @@ class Destinatario {
     private $numeroCivico;
     private $via;
     private $citta;
-    private $cap;
+    private $email;
 
     /**
      * Restituisce il nome dell'utente
@@ -115,22 +115,20 @@ class Destinatario {
      * Restituisce il cap di abitazione dell'utente
      * @return int
      */
-    public function getCap() {
-        return $this->cap;
+    public function getEmail() {
+        return $this->email;
     }
 
-    /**
-     * Imposta il cap di abitazione dell'utente
-     * @param int $cap
-     * @return boolean true se il nuovo valore e' ammissibile ed e' stato
-     * impostato, false altrimenti
-     */
-    public function setCap($cap) {
-        if (!filter_var($cap, FILTER_VALIDATE_REGEXP, array('options' => array('regexp' => '/[0-9]{5}/')))) {
-            return false;
-        }
-        $this->cap = $cap;
-        return true;
+    public function setEmail($email) {
+        // Prima dell'inserimento controllo se l'email e' valida
+                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                     //  il  valore non  e'  ammissibile blocco l'insert
+                    echo '<script language=javascript>document.location.href="contatta.php?msg=emailerrata"</script>';
+                    return;
+                }
+                
+                $this->email = $email;
+      
     }
 
 }

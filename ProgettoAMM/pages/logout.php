@@ -1,5 +1,4 @@
 <?php session_start(); ?>
-<?php include "include/errorReport.php"; ?>
 <?php
 
 // sistema di logout dell`utente

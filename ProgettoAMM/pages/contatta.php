@@ -1,10 +1,8 @@
-<?php session_start(); ?>
-<?php include "include/errorReport.php"; ?>
 <?php
-include_once './view/destinatario.php';
+include_once './view/magazzino.php';
 include_once './view/ViewDescriptor.php';
 ?>
-<?php include "loginsucess.php"; ?>
+<?php include "./include/loginsuccess.php"; ?>
 <!-- TOP part -->
 <?php
 $top = $vd->getTopFile();
@@ -16,8 +14,11 @@ require "$top";
     <div class="rigatr">
         <div class="colonnatd25"><div class="border"> 
 
-                <!--MENU part -->
-                <?php include 'template/templateMENU.php'; ?>
+                <!-- Menu part -->
+                <?php
+                $menu = $vd->getMenuFile();
+                require "$menu";
+                ?> 
 
             </div></div>
 

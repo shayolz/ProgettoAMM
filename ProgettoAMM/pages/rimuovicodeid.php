@@ -1,7 +1,5 @@
-<?php session_start(); ?>
-<?php include "include/errorReport.php"; ?>
 <?php
-include_once './view/destinatario.php';
+include_once './view/magazzino.php';
 include_once './view/ViewDescriptor.php';
 ?>
 <!-- TOP part -->
@@ -14,8 +12,11 @@ require "$top";
     <div class="rigatr">
         <div class="colonnatd25"><div class="border"> 
 
-                <!--MENU part -->
-                <?php include 'template/templateMENU.php'; ?>
+                <!-- Menu part -->
+                <?php
+                $menu = $vd->getMenuFile();
+                require "$menu";
+                ?> 
 
             </div></div>
 
@@ -27,7 +28,7 @@ require "$top";
 
                 // Non dovrebbe mai accadere!!
                 if (!isset($_REQUEST['campo4'])) {
-                    header("location: ./accesso.php");
+                    header("location: ./pages/accesso.php");
                     return;
                 }
                 try {

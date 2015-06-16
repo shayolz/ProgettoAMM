@@ -1,7 +1,5 @@
-<?php session_start(); ?>
-<?php include "include/errorReport.php"; ?>
 <?php
-include_once './view/destinatario.php';
+include_once './view/magazzino.php';
 include_once './view/ViewDescriptor.php';
 ?>
 <!-- TOP part -->

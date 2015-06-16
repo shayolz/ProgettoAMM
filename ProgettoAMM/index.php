@@ -1,54 +1,97 @@
-<?php session_start(); ?>
-<?php include "include/errorReport.php"; ?>
 <?php
-include_once './view/destinatario.php';
+
 include_once './view/ViewDescriptor.php';
-?>
-<?php include "loginredirect.php"; ?>
-<!-- TOP part -->
-<?php
-$top = $vd->getTopFile();
-require "$top";
-?>
+include_once './controller/controller.php';
+date_default_timezone_set("Europe/Rome");
 
-<br>
+// punto unico di accesso all'applicazione
+FrontController::dispatch($_REQUEST);
 
-<div class="tabella">
-    <div class="rigatr">
-        <div class="border">
-            <h3><div class="scrittaLOGO">Inserisci le credenziali per accedere al sistema</div></h3>
-            <span class="dec1">Amministratore</span>: Username: amministratore, password: prova<br>
-            <span class="dec1">Operatore</span>: Username: operatore, password: prova <br>
-            <form id="login" action="logincode.php" method="post">
-                <fieldset id="inputs">
-                    Username:<input id="username" name="username" type="text" placeholder="Username" autofocus required> <br>
-                    Password:<input id="password" name="password" type="password" placeholder="Password" required>
-                </fieldset>
-                <fieldset id="actions">
-                    <input type="submit" id="submit" name="login"value="Login">
-                </fieldset>
-            </form>
+/**
+ * Classe che controlla il punto unico di accesso all'applicazione
+ */
+class FrontController {
 
-            <!-- documentazione -->
-            <a href="./documentazione.php"><div id='scrittaDOCUMENTAZIONE'>Cosa fa il progetto (Non e` necessario il login)</div></a>
-        </div> 
-    </div>  
-</div> 
+    /**
+     * Gestore delle richieste al punto unico di accesso all'applicazione
+     * @param array $request i parametri della richiesta
+     */
+    public static function dispatch(&$request) {
+        // inizializziamo la sessione
+        session_start();
+        if (isset($request["page"])) {
+            switch ($request["page"]) {
+                case "master":
+                    $controller = new SimpleController();
+                    $controller->handleInput($request);
+                    break;
+                case "accesso":
+                    $controller = new SimpleController();
+                    $controller->handleInput($request);
+                    break;
+                case "rimuovi":
+                    $controller = new SimpleController();
+                    $controller->handleInput($request);
+                    break;
+                case "inserisci":
+                    $controller = new SimpleController();
+                    $controller->handleInput($request);
+                    break;
+                case "mappa":
+                    $controller = new SimpleController();
+                    $controller->handleInput($request);
+                    break;
+                case "totaleprodotti":
+                    $controller = new SimpleController();
+                    $controller->handleInput($request);
+                    break;
+                case "contatta":
+                    $controller = new SimpleController();
+                    $controller->handleInput($request);
+                    break;
+                case "documentazione":
+                    $controller = new SimpleController();
+                    $controller->handleInput($request);
+                    break;
+                case "logout":
+                    $controller = new SimpleController();
+                    $controller->handleInput($request);
+                    break;
+                default:
+                    self::write404();
+                    break;
+            }
+        } else {
+            $request = "master";
+            $controller = new SimpleController();
+            $controller->handleInput($request);
+            echo '<script language=javascript>document.location.href="index.php?page=master"</script>';
+        }
+    }
 
-<br>
-<br>
+    /**
+     * Crea una pagina di errore quando il path specificato non esiste
+     */
+    public static function write404() {
+        // impostiamo il codice della risposta http a 404 (file not found)
+        header('HTTP/1.0 404 Not Found');
+        $titolo = "File non trovato!";
+        $messaggio = "La pagina che hai richiesto non &egrave; disponibile";
+        echo''.$messaggio;
+        exit();
+    }
 
-<!-- Footer part -->
-<?php
-$footer = $vd->getFooterFile();
-require "$footer";
-?>
+    /**
+     * Crea una pagina di errore quando l'utente non ha i privilegi
+     * per accedere alla pagina
+     */
+    public static function write403() {
+// impostiamo il codice della risposta http a 404 (file not found)
+        header('HTTP/1.0 403 Forbidden');
+        $titolo = "Accesso negato";
+        $messaggio = "Non hai i diritti per accedere a questa pagina";
+        $login = true;
+        exit();
+    }
 
-<?php
-// Se il login e' errato allora interviene il javascript con un messaggio di warning
-// logincode.php rimanda a msg loginfailed
-
-if (isset($_GET['msg']) && $_GET['msg'] == "loginfailed") {
-    echo '<script language=javascript>loginFailed()</script>';
 }
-?>

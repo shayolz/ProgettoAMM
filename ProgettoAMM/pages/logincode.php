@@ -1,15 +1,5 @@
 <?php session_start(); ?>
-<?php include "include/errorReport.php"; ?>
 <?php
-
-/*
- * LEGGERE QUA:
- * 
- * Ho sostituito il sistema di login con quello riportato nelle slides.
- * Il file logincode2.php non viene piu' utlizzato anche se funzionante.
- * Utilizzava il database per i due utenti.
- * 
- */
 
 if (isset($_REQUEST["login"]) && isset($_REQUEST["username"]) && isset($_REQUEST["password"])) {
     if (login($_REQUEST["username"], $_REQUEST["password"])) {
@@ -17,7 +7,7 @@ if (isset($_REQUEST["login"]) && isset($_REQUEST["username"]) && isset($_REQUEST
         $_SESSION["loginsuccess"] = "autorizzato";
 
         // redirect alla pagina protetta
-        echo '<script language=javascript>document.location.href="accesso.php"</script>';
+        echo '<script language=javascript>document.location.href="./pages/accesso.php"</script>';
     } else {
 
         // user e pass erroati, redirect a pagina loginfailed

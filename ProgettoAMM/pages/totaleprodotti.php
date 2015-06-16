@@ -1,10 +1,8 @@
-<?php session_start(); ?>
-<?php include "include/errorReport.php"; ?>
 <?php
-include_once './view/destinatario.php';
+include_once './view/magazzino.php';
 include_once './view/ViewDescriptor.php';
 ?>
-<?php include "loginsucess.php"; ?>
+<?php include "./include/loginsuccess.php"; ?>
 <!-- TOP part -->
 <?php
 $top = $vd->getTopFile();
@@ -16,18 +14,21 @@ require "$top";
     <div class="rigatr">
         <div class="colonnatd25"><div class="border"> 
 
-                <!--MENU part -->
-                <?php include 'template/templateMENU.php'; ?>
+                <!-- Menu part -->
+                <?php
+                $menu = $vd->getMenuFile();
+                require "$menu";
+                ?> 
 
             </div></div>
 
         <div class="colonnatd75"><div class="border"> 
 
-                <h3>Seleziona componente:</h3>
-                Seleziona il componente che verra' mostrato all'interno del magazzino:<br><br>
+                <h3>Totale prodotti:</h3>
+                Seleziona il componente per vedere quanti ne sono disponibili nel magazzino:<br><br>
 
-                <form method="post" action="mappacode.php">
-                    <select size="1" name="campo10">
+                <form method="post" action="totaleprodotticode.php">
+                    <select size="1" name="campo11">
                         <option>Condensatore</option>
                         <option>Resistenza</option>
                         <option>Diodo</option>
@@ -36,7 +37,7 @@ require "$top";
                         <option>Fusibile</option>
                     </select><br>
 
-                    <INPUT TYPE="submit" VALUE="Mostra nella mappa">
+                    <INPUT TYPE="submit" VALUE="Mostra">
                 </form>
 
             </div>

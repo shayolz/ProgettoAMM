@@ -1,4 +1,3 @@
-<?php include "include/errorReport.php"; ?>
 <?php
 
 // Protezione in caso un utenti cerchi ad accedere direttamente ai files

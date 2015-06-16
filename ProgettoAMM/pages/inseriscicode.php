@@ -1,7 +1,5 @@
-<?php session_start(); ?>
-<?php include "include/errorReport.php"; ?>
 <?php
-include_once './view/destinatario.php';
+include_once './view/magazzino.php';
 include_once './view/ViewDescriptor.php';
 ?>
 <!-- TOP part -->
@@ -14,8 +12,11 @@ require "$top";
     <div class="rigatr">
         <div class="colonnatd25"><div class="border"> 
 
-                <!--MENU part -->
-                <?php include 'template/templateMENU.php'; ?>
+                <!-- Menu part -->
+                <?php
+                $menu = $vd->getMenuFile();
+                require "$menu";
+                ?> 
 
             </div></div>
 
@@ -69,37 +70,31 @@ require "$top";
                     $posizioney = 510 + $randomValuey;
                 }
 
-// query per selezionare tutti i campi e generale l id unico
-                $queryselect = "SELECT id FROM componenti_elettronici";
-                $result = $mysqli->query($queryselect);
-                $ultimoId = 0;
-                $nuovoId = 0;
-
-// calcolo del nuovo id unico
-                while ($res = $result->fetch_array()) {
-                    if ($ultimoId < $res['id']) {
-                        $ultimoId = $res['id'];
-                    }
-                }
-
-                $nuovoId = $ultimoId + 1;
-
-                // query per l`inserimento dei dati nel DB
-                $query = "INSERT INTO componenti_elettronici (id, nome,reparto,sezione,quantita,posizionescaffalex,posizionescaffaley) VALUES ('$nuovoId', '{$_REQUEST['campo1']}', '{$_REQUEST['campo2']}', '{$_REQUEST['campo3']}','{$_REQUEST['campo4']}', $posizionex, $posizioney)";
-
-                if ($mysqli->query($query)) {
+                // inizializzo il prepared statement
+                $stmt = $mysqli->stmt_init();
+                
+                // query
+                $query = "INSERT INTO componenti_elettronici (nome,reparto,sezione,quantita,posizionescaffalex,posizionescaffaley) VALUES (?, ?, ?, ?, $posizionex, $posizioney)";
+                
+                // preparo lo statement per l'esecuzione
+                $stmt->prepare($query);
+                
+                // collego i parametri della mia query con il loro tipo
+                $stmt->bind_param("ssii", $_REQUEST['campo1'], $_REQUEST['campo2'], $_REQUEST['campo3'], $_REQUEST['campo4']);
+                
+                // eseguiamo la query e controlliamo se c'è un errore
+                if ($stmt->execute()) {
                     echo ("Inserimento riuscito! </br>");
                 } else {
                     echo ("Errore nell'inserimento! Si prega di riprovare!</br>");
                 }
 
-                //Chiusura della connessione
-                $mysqli->close();
-                
-                if(Database::$db_debug == "true"){
-                  echo "DEBUG MODE: Connessione chiusa.<br>";
+                //liberiamo le risorse dello statement
+                $stmt->close();
+
+                if (Database::$db_debug == "true") {
+                    echo "DEBUG MODE: Connessione chiusa.<br>";
                 }
-                
                 ?>
 
             </div>
@@ -113,3 +108,4 @@ require "$top";
 $footer = $vd->getFooterFile();
 require "$footer";
 ?>
+
