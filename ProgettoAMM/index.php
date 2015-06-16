@@ -117,18 +117,4 @@ class FrontController {
         echo'' . $messaggio;
         exit();
     }
-
-    /**
-     * Crea una pagina di errore quando l'utente non ha i privilegi
-     * per accedere alla pagina
-     */
-    public static function write403() {
-// impostiamo il codice della risposta http a 404 (file not found)
-        header('HTTP/1.0 403 Forbidden');
-        $titolo = "Accesso negato";
-        $messaggio = "Non hai i diritti per accedere a questa pagina";
-        $login = true;
-        exit();
-    }
-
 }

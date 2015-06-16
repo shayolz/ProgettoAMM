@@ -28,7 +28,7 @@ require "$top";
             </form>
 
             <!-- documentazione -->
-            <a href="./documentazione.php"><div id='scrittaDOCUMENTAZIONE'>Cosa fa il progetto (Non e` necessario il login)</div></a>
+            <a href="index.php?page=documentazione"><div id='scrittaDOCUMENTAZIONE'>Cosa fa il progetto (Non e` necessario il login)</div></a>
         </div> 
     </div>  
 </div> 
