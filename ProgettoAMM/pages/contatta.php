@@ -36,7 +36,7 @@ require "$top";
                 <!--form part, javascript Modulo() controlla se i dati inseriti sono validi -->
                 <h3>Invia un messaggio all'amministratore:</h3>
                 Compila questo form per inviare un messaggio direttamente agli amministratori.<br><br>
-                <form onsubmit="return Modulo()" name="myForm" method="post" action="contattacode.php">
+                <form onsubmit="return Modulo()" name="myForm" method="post" action="index.php?page=contattacode">
                     <span class="dec2">Nome</span>
                     <INPUT TYPE="text" NAME="campo01">
                     <br>
@@ -60,7 +60,7 @@ require "$top";
 // Se il login e' errato allora interviene il javascript con un messaggio di warning
 // logincode.php rimanda a msg loginfailed
 
-if (!empty($_GET) && $_GET['msg'] == "emailerrata") {
+if (!empty($_GET) && isset($_GET['msg']) && $_GET['msg'] == "emailerrata") {
     echo '<script language=javascript>emailErrata()</script>';
 }
 ?>

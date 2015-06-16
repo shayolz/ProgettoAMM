@@ -20,7 +20,7 @@ require "$top";
                 ?> 
             </div></div>
         <div class="colonnatd75"><div class="border"> 
-                <img src="../images/logo2.png" alt="logo" width="600" height="300" title="logo website"/> 
+                <img src="./images/logo2.png" alt="logo" width="600" height="300" title="logo website"/> 
             </div></div>
     </div>
 </div>

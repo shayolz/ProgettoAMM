@@ -28,7 +28,7 @@ require "$top";
 
                 // Non dovrebbe mai accadere!!
                 if (!isset($_REQUEST['campo01']) || !isset($_REQUEST['campo02']) || !isset($_REQUEST['campo03'])) {
-                    header("location: ./pages/accesso.php");
+                    header("location: ./index.php?page=accesso");
                     return;
                 }
 

@@ -19,6 +19,7 @@ class FrontController {
     public static function dispatch(&$request) {
         // inizializziamo la sessione
         session_start();
+        
         if (isset($request["page"])) {
             switch ($request["page"]) {
                 case "master":
@@ -49,6 +50,10 @@ class FrontController {
                     $controller = new SimpleController();
                     $controller->handleInput($request);
                     break;
+                case "contattacode":
+                    $controller = new SimpleController();
+                    $controller->handleInput($request);
+                    break;
                 case "documentazione":
                     $controller = new SimpleController();
                     $controller->handleInput($request);
@@ -62,7 +67,7 @@ class FrontController {
                     break;
             }
         } else {
-            $request = "master";
+            $request["page"] = "master";
             $controller = new SimpleController();
             $controller->handleInput($request);
             echo '<script language=javascript>document.location.href="index.php?page=master"</script>';

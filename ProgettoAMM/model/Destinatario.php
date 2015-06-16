@@ -123,7 +123,7 @@ class Destinatario {
         // Prima dell'inserimento controllo se l'email e' valida
                 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                      //  il  valore non  e'  ammissibile blocco l'insert
-                    echo '<script language=javascript>document.location.href="contatta.php?msg=emailerrata"</script>';
+                    echo '<script language=javascript>document.location.href="index.php?page=contatta&msg=emailerrata"</script>';
                     return;
                 }
                 

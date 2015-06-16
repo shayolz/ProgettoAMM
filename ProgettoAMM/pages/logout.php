@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <?php
 
 // sistema di logout dell`utente
@@ -9,6 +8,7 @@ if (session_id() != "" || isset($_COOKIE[session_name()])) {
 }
 session_destroy
 ();
+
 // Ritorno alla home page
 echo '<script language=javascript>document.location.href="index.php"</script>';
 

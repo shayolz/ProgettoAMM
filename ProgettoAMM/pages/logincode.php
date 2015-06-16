@@ -7,7 +7,7 @@ if (isset($_REQUEST["login"]) && isset($_REQUEST["username"]) && isset($_REQUEST
         $_SESSION["loginsuccess"] = "autorizzato";
 
         // redirect alla pagina protetta
-        echo '<script language=javascript>document.location.href="./pages/accesso.php"</script>';
+        echo '<script language=javascript>document.location.href="../index.php?page=accesso"</script>';
     } else {
 
         // user e pass erroati, redirect a pagina loginfailed
