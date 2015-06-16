@@ -1,9 +1,8 @@
 <?php
 // Evitiamo che il file venga richiesto direttamente
-if(__FILE__ == $_SERVER['SCRIPT_FILENAME'])
-{
-  echo '<script language=javascript>document.location.href="../index.php?page=accesso"</script>';
-  exit();
+if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) {
+    echo '<script language=javascript>document.location.href="../index.php?page=accesso"</script>';
+    exit();
 }
 ?>
 <?php
@@ -34,7 +33,7 @@ require "$top";
                 <?php
                 // includo i file necessari a collegarmi al db con relativo script di accesso
                 include "./model/Database.php";
-                
+
                 // query per selezionare tutti i campi e generale l id unico
                 $queryselect = $mysqli->query("SELECT id,nome FROM contatta");
 
@@ -64,9 +63,9 @@ require "$top";
 
                 //Chiusura della connessione
                 $mysqli->close();
-                
-                if(Database::$db_debug == "true"){
-                  echo "DEBUG MODE: Connessione chiusa.<br>";
+
+                if (Database::$db_debug == "true") {
+                    echo "DEBUG MODE: Connessione chiusa.<br>";
                 }
                 ?>
 

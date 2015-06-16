@@ -1,9 +1,8 @@
 <?php
 // Evitiamo che il file venga richiesto direttamente
-if(__FILE__ == $_SERVER['SCRIPT_FILENAME'])
-{
-  echo '<script language=javascript>document.location.href="../index.php?page=accesso"</script>';
-  exit();
+if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) {
+    echo '<script language=javascript>document.location.href="../index.php?page=accesso"</script>';
+    exit();
 }
 ?>
 <?php
@@ -33,7 +32,7 @@ require "$top";
                 <?php
 // includo i file necessari a collegarmi al db con relativo script di accesso
                 include "./model/Database.php";
-                
+
                 // Se la varibile non e' stata inizializzata viene reindirizzato alla home
 // Non dovrebbe mai accadere!!
                 if (!isset($_REQUEST['campo11'])) {
@@ -47,22 +46,22 @@ require "$top";
 
                 // inizializzo il prepared statement
                 $stmt = $mysqli->stmt_init();
-                
+
                 // query
                 $query = "SELECT * FROM componenti_elettronici WHERE nome = ?";
-                
+
                 // preparo lo statement per l'esecuzione
                 $stmt->prepare($query);
-                
+
                 // collego i parametri della mia query con il loro tipo
                 $stmt->bind_param("s", $_REQUEST['campo11']);
-                
+
                 // eseguiamo la query
-                $stmt->execute();  
-                
+                $stmt->execute();
+
                 // collego i risultati della query con un insieme di variabili
                 $stmt->bind_result($res_id, $res_nome, $res_reparto, $res_sezione, $res_posizionescaffalex, $res_posizionescaffaley, $res_quantita);
-                
+
                 // ciclo sulle righe che la query ha restituito
                 while ($stmt->fetch()) {
                     // ho nelle varibili dei risultati il contenuto delle colonne
@@ -70,7 +69,7 @@ require "$top";
                 }
 
                 //liberiamo le risorse dello statement
-                $stmt->close();                               
+                $stmt->close();
 
                 // query selezionare tutti i componenti elettronici
                 $query1 = $mysqli->query("SELECT * FROM componenti_elettronici");
@@ -86,9 +85,9 @@ require "$top";
 
                 //Chiusura della connessione
                 $mysqli->close();
-                
-                if(Database::$db_debug == "true"){
-                  echo "DEBUG MODE: Connessione chiusa.<br>";
+
+                if (Database::$db_debug == "true") {
+                    echo "DEBUG MODE: Connessione chiusa.<br>";
                 }
                 ?>
 

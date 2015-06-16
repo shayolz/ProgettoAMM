@@ -1,9 +1,8 @@
 <?php
 // Evitiamo che il file venga richiesto direttamente
-if(__FILE__ == $_SERVER['SCRIPT_FILENAME'])
-{
-  echo '<script language=javascript>document.location.href="../index.php?page=accesso"</script>';
-  exit();
+if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) {
+    echo '<script language=javascript>document.location.href="../index.php?page=accesso"</script>';
+    exit();
 }
 ?>
 <?php
@@ -56,7 +55,7 @@ require "$top";
 
                 // eseguiamo laquery
                 $stmt->execute();
-                
+
                 // collego i risultati della query con un insieme di variabili
                 $stmt->bind_result($res_id, $res_nome, $res_testo, $res_email);
                 // ciclo sulle righe che la query ha restituito

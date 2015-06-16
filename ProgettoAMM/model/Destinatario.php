@@ -121,14 +121,13 @@ class Destinatario {
 
     public function setEmail($email) {
         // Prima dell'inserimento controllo se l'email e' valida
-                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                     //  il  valore non  e'  ammissibile blocco l'insert
-                    echo '<script language=javascript>document.location.href="index.php?page=contatta&msg=emailerrata"</script>';
-                    return;
-                }
-                
-                $this->email = $email;
-      
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            //  il  valore non  e'  ammissibile blocco l'insert
+            echo '<script language=javascript>document.location.href="index.php?page=contatta&msg=emailerrata"</script>';
+            return;
+        }
+
+        $this->email = $email;
     }
 
 }

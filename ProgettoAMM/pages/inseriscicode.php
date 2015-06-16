@@ -1,9 +1,8 @@
 <?php
 // Evitiamo che il file venga richiesto direttamente
-if(__FILE__ == $_SERVER['SCRIPT_FILENAME'])
-{
-  echo '<script language=javascript>document.location.href="../index.php?page=accesso"</script>';
-  exit();
+if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) {
+    echo '<script language=javascript>document.location.href="../index.php?page=accesso"</script>';
+    exit();
 }
 ?>
 <?php
@@ -80,16 +79,16 @@ require "$top";
 
                 // inizializzo il prepared statement
                 $stmt = $mysqli->stmt_init();
-                
+
                 // query
                 $query = "INSERT INTO componenti_elettronici (nome,reparto,sezione,quantita,posizionescaffalex,posizionescaffaley) VALUES (?, ?, ?, ?, $posizionex, $posizioney)";
-                
+
                 // preparo lo statement per l'esecuzione
                 $stmt->prepare($query);
-                
+
                 // collego i parametri della mia query con il loro tipo
                 $stmt->bind_param("ssii", $_REQUEST['campo1'], $_REQUEST['campo2'], $_REQUEST['campo3'], $_REQUEST['campo4']);
-                
+
                 // eseguiamo la query e controlliamo se c'è un errore
                 if ($stmt->execute()) {
                     echo ("Inserimento riuscito! </br>");

@@ -19,7 +19,7 @@ class FrontController {
     public static function dispatch(&$request) {
         // inizializziamo la sessione
         session_start();
-        
+
         if (isset($request["page"])) {
             switch ($request["page"]) {
                 case "master":
@@ -114,7 +114,7 @@ class FrontController {
         header('HTTP/1.0 404 Not Found');
         $titolo = "File non trovato!";
         $messaggio = "La pagina che hai richiesto non &egrave; disponibile";
-        echo''.$messaggio;
+        echo'' . $messaggio;
         exit();
     }
 

@@ -1,9 +1,8 @@
 <?php
 // Evitiamo che il file venga richiesto direttamente
-if(__FILE__ == $_SERVER['SCRIPT_FILENAME'])
-{
-  echo '<script language=javascript>document.location.href="../index.php?page=accesso"</script>';
-  exit();
+if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) {
+    echo '<script language=javascript>document.location.href="../index.php?page=accesso"</script>';
+    exit();
 }
 ?>
 <?php
@@ -41,20 +40,20 @@ require "$top";
                 }
 
                 $Object = new Destinatario();
-                $Object->setEmail($_REQUEST['campo03']);     
+                $Object->setEmail($_REQUEST['campo03']);
 
                 // inizializzo il prepared statement
                 $stmt = $mysqli->stmt_init();
-                
+
                 // query
                 $query = "INSERT INTO contatta (nome,testo,email) VALUES (?, ?, ?)";
-                
+
                 // preparo lo statement per l'esecuzione
                 $stmt->prepare($query);
-                
+
                 // collego i parametri della mia query con il loro tipo
                 $stmt->bind_param("sss", $_REQUEST['campo01'], $_REQUEST['campo02'], $_REQUEST['campo03']);
-                
+
                 // eseguiamo la query e controlliamo se c'è un errore
                 if ($stmt->execute()) {
                     echo ("Inserimento riuscito! </br>");
@@ -64,9 +63,9 @@ require "$top";
 
                 //liberiamo le risorse dello statement
                 $stmt->close();
-                
-                if(Database::$db_debug == "true"){
-                  echo "DEBUG MODE: Connessione chiusa.<br>";
+
+                if (Database::$db_debug == "true") {
+                    echo "DEBUG MODE: Connessione chiusa.<br>";
                 }
                 ?>
 

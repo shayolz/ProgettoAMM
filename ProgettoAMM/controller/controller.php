@@ -66,7 +66,7 @@ class SimpleController {
                 include 'pages/logincode.php';
                 break;
             case "logout":
-                include 'pages/logout.php';          
+                include 'pages/logout.php';
                 break;
 
             default:
@@ -74,4 +74,5 @@ class SimpleController {
                 break;
         }
     }
+
 }

@@ -1,9 +1,8 @@
 <?php
 // Evitiamo che il file venga richiesto direttamente
-if(__FILE__ == $_SERVER['SCRIPT_FILENAME'])
-{
-  echo '<script language=javascript>document.location.href="../index.php?page=accesso"</script>';
-  exit();
+if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) {
+    echo '<script language=javascript>document.location.href="../index.php?page=accesso"</script>';
+    exit();
 }
 ?>
 <?php
@@ -40,7 +39,7 @@ require "$top";
                     return;
                 }
                 try {
-                    
+
                     // query per l`inserimento dei dati nel DB
                     $query = "DELETE FROM componenti_elettronici WHERE id = '{$_REQUEST['campo4']}'";
 
@@ -48,9 +47,8 @@ require "$top";
 
                     // Nessun errore
                     // commit della query nel database
-                    $mysqli->commit();                
+                    $mysqli->commit();
                     echo "Oggetto rimosso con successo.<br>";
-                    
                 } catch (Exception $e) {
 
                     echo "Errore nella rimozione dell'oggetto.<br>";
