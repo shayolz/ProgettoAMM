@@ -1,8 +1,8 @@
 <?php
 // Evitiamo che il file venga richiesto direttamente
 if (__FILE__ == filter_input(INPUT_SERVER, 'SCRIPT_FILENAME', FILTER_SANITIZE_STRING)) {
-    echo '<script language=javascript>document.location.href="../index.php?page=accesso"</script>';
-    exit();
+echo '<script language=javascript>document.location.href="../index.php?page=accesso"</script>';
+exit();
 }
 ?>
 <?php
@@ -35,26 +35,34 @@ require "$top";
 
                 // Non dovrebbe mai accadere!!
                 if (!isset($_REQUEST['campo4'])) {
-                    header("location: ./pages/accesso.php");
-                    return;
+                header("location: ./pages/accesso.php");
+                return;
                 }
-                try {
 
-                    // query per l`inserimento dei dati nel DB
-                    $query = "DELETE FROM componenti_elettronici WHERE id = '{$_REQUEST['campo4']}'";
+                // inizializzo il prepared statement
+                $stmt = $mysqli->stmt_init();
 
-                    $mysqli->query($query);
+                // query
+                $query = "DELETE FROM componenti_elettronici WHERE id = ?";
 
-                    // Nessun errore
-                    // commit della query nel database
-                    $mysqli->commit();
-                    echo "Oggetto rimosso con successo.<br>";
-                } catch (Exception $e) {
+                // preparo lo statement per l'esecuzione
+                $stmt->prepare($query);
 
-                    echo "Errore nella rimozione dell'oggetto.<br>";
+                // collego i parametri della mia query con il loro tipo
+                $stmt->bind_param("i", $_REQUEST['campo4']);
 
-                    // faccio il rollback delle queries precedenti
-                    $mysqli->rollback();
+                // eseguiamo la query e controlliamo se c'è un errore
+                if ($stmt->execute()) {
+                echo ("Oggetto rimosso con successo! </br>");
+
+                // Nessun errore
+                // commit della query nel database
+                $mysqli->commit();
+                } else {
+                echo ("Errore nell'inserimento! Si prega di riprovare!</br>");
+
+                // faccio il rollback delle queries precedenti
+                $mysqli->rollback();
                 }
 
                 // risetto l'auto commit a true
@@ -64,7 +72,7 @@ require "$top";
                 $mysqli->close();
 
                 if (Database::$db_debug == "true") {
-                    echo "DEBUG MODE: Connessione chiusa.<br>";
+                echo "DEBUG MODE: Connessione chiusa.<br>";
                 }
                 ?>
 

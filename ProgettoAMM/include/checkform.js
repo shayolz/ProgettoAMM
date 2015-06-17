@@ -5,7 +5,7 @@ function Modulo() {
     var x = document.forms["myForm"]["campo4"].value;
 
     // Controllo se ha lasciato vuoto e inserito 0
-    if (x == null || x == "" || x == "0") {
+    if (x === null || x === "" || x === "0") {
         alert("Campo quantita' non puo' essere vuoto o uguale a 0!");
         return false;
     }

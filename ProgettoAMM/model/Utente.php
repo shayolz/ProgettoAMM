@@ -11,6 +11,7 @@ class Utente {
     private $via;
     private $citta;
     private $email;
+    private $admin;
 
     /**
      * Restituisce il nome dell'utente
@@ -129,5 +130,23 @@ class Utente {
 
         $this->email = $email;
     }
+    
+    /**
+     * Restituisce se è admin
+     * @return string
+     */
+    public function getAdmin() {
+        return $this->admin;
+    }
+
+    /**
+     * Imposta l'admin
+     * @param type $admin
+     * @return boolean true se la via e' stata impostata correttamente, false
+     * altrimenti
+     */
+    public function setAdmin($admin) {
+        $this->admin = $admin;
+        return true;
+    }
 }
-?>

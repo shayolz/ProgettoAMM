@@ -12,6 +12,12 @@ class SimpleController {
         if (!isset($request['page'])) {
             $request['page'] = "master";
         }
+        
+        if (isset($_SESSION['utente'])) {
+           $utente = $_SESSION['utente'];
+        } else {
+           $utente = new Utente();
+        }
 
         switch ($request["page"]) {
             case "master":

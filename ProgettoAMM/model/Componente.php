@@ -1,9 +1,11 @@
 <?php
 
+include_once 'Pacco.php';
+
 /**
  * Description of Componente
  */
-class Componente {
+class Componente extends Pacco {
 
     private $id;
     private $nome;
@@ -46,5 +48,3 @@ class Componente {
     }
 
 }
-
-?>

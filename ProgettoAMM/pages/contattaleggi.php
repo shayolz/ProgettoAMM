@@ -9,6 +9,7 @@ if (__FILE__ == filter_input(INPUT_SERVER, 'SCRIPT_FILENAME', FILTER_SANITIZE_ST
 include_once './view/magazzino.php';
 include_once './view/ViewDescriptor.php';
 ?>
+<?php include "./include/loginprivileges.php"; ?>
 <!-- TOP part -->
 <?php
 $top = $vd->getTopFile();

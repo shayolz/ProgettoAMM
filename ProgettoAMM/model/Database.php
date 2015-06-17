@@ -33,4 +33,3 @@ if ($mysqli->connect_errno != 0) {
     }
 // tutto ok
 }
-?>

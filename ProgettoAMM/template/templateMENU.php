@@ -1,7 +1,9 @@
 <?php
 echo "<h2>Menu:</h2> <br>";
 
-if ($_SESSION["admin"]) {
+echo ''.$utente->getAdmin();
+
+if ($utente->getAdmin() == 1) {
     echo "Logged as: <span class=dec3>Amministratore</span>. <br>";
     echo "1. <a href='./index.php?page=inserisci'>Inserire nuovo prodotto</a> <br>";
     echo "2. <a href='./index.php?page=rimuovi'>Rimuovi prodotto dal sistema</a> <br>";

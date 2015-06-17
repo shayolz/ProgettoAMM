@@ -6,18 +6,31 @@ if (__FILE__ == filter_input(INPUT_SERVER, 'SCRIPT_FILENAME', FILTER_SANITIZE_ST
     exit();
 }
 ?>
-<?php session_start(); ?>
+<?php
+include_once './view/magazzino.php';
+include_once './view/ViewDescriptor.php';
+?>
 <?php
 
 if (isset($_REQUEST["login"]) && isset($_REQUEST["username"]) && isset($_REQUEST["password"])) {
     if (login($_REQUEST["username"], $_REQUEST["password"])) {
         /* Registro la sessione "loginsuccess" */
         $_SESSION["loginsuccess"] = "autorizzato";
-
+        
+        if ($_REQUEST["username"] == "amministratore")
+            {
+                // Imposto l'attributo statico
+         $utente->setAdmin(1); 
+}
+else
+    {
+                // Imposto l'attributo statico
+         $utente->setAdmin(0); 
+}
+    
         // redirect alla pagina protetta
         echo '<script language=javascript>document.location.href="./index.php?page=accesso"</script>';
     } else {
-
         // user e pass erroati, redirect a pagina loginfailed
         echo '<script language=javascript>document.location.href="./index.php?msg=loginfailed"</script>';
     }
@@ -25,6 +38,7 @@ if (isset($_REQUEST["login"]) && isset($_REQUEST["username"]) && isset($_REQUEST
 
 function login($user, $password) {
     if ($user == "amministratore" && $password == "prova") {
+        
         /* Registro la sessione "admin" */
         $_SESSION["admin"] = 1;
 
@@ -33,6 +47,7 @@ function login($user, $password) {
 
         return true;
     } else if ($user == "operatore" && $password == "prova") {
+
         /* Registro la sessione "admin" */
         $_SESSION["admin"] = 0;
 

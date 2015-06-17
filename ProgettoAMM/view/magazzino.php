@@ -12,3 +12,5 @@ $vd->setTitolo("Magazzino");
 $vd->setTopFile('./template/templateTOP.php');
 $vd->setMenuFile('./template/templateMENU.php');
 $vd->setFooterFile('./template/templateFOOTER.php');
+
+$utente = new Utente();
