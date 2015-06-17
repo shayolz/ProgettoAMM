@@ -1,7 +1,7 @@
 <?php
 
 // Evitiamo che il file venga richiesto direttamente
-if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) {
+if (__FILE__ == filter_input(INPUT_SERVER, 'SCRIPT_FILENAME', FILTER_SANITIZE_STRING)) {
     echo '<script language=javascript>document.location.href="../index.php?page=accesso"</script>';
     exit();
 }
@@ -21,4 +21,3 @@ session_destroy
 echo '<script language=javascript>document.location.href="index.php"</script>';
 
 exit();
-?>

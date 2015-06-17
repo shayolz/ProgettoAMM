@@ -1,6 +1,6 @@
 <?php
 
-include_once './model/Destinatario.php';
+include_once './model/Utente.php';
 
 /**
  *  BaseController

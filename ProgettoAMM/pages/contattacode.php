@@ -1,6 +1,6 @@
 <?php
 // Evitiamo che il file venga richiesto direttamente
-if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) {
+if (__FILE__ == filter_input(INPUT_SERVER, 'SCRIPT_FILENAME', FILTER_SANITIZE_STRING)) {
     echo '<script language=javascript>document.location.href="../index.php?page=accesso"</script>';
     exit();
 }
@@ -30,7 +30,7 @@ require "$top";
         <div class="colonnatd75"><div class="border"> 
 
                 <?php
-// includo i file necessari a collegarmi al db con relativo script di accesso
+                // includo i file necessari a collegarmi al db con relativo script di accesso
                 include "./model/Database.php";
 
                 // Non dovrebbe mai accadere!!
@@ -39,7 +39,7 @@ require "$top";
                     return;
                 }
 
-                $Object = new Destinatario();
+                $Object = new Utente();
                 $Object->setEmail($_REQUEST['campo03']);
 
                 // inizializzo il prepared statement
@@ -79,4 +79,3 @@ require "$top";
 <?php
 $footer = $vd->getFooterFile();
 require "$footer";
-?>

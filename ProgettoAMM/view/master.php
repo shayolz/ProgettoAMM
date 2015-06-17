@@ -49,4 +49,3 @@ require "$footer";
 if (isset($_GET['msg']) && $_GET['msg'] == "loginfailed") {
     echo '<script language=javascript>loginFailed()</script>';
 }
-?>

@@ -1,6 +1,6 @@
 <?php
 // Evitiamo che il file venga richiesto direttamente
-if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) {
+if (__FILE__ == filter_input(INPUT_SERVER, 'SCRIPT_FILENAME', FILTER_SANITIZE_STRING)) {
     echo '<script language=javascript>document.location.href="../index.php?page=accesso"</script>';
     exit();
 }
@@ -30,18 +30,18 @@ require "$top";
         <div class="colonnatd75"><div class="border"> 
 
                 <?php
-// includo i file necessari a collegarmi al db con relativo script di accesso
+                // includo i file necessari a collegarmi al db con relativo script di accesso
                 include "./model/Database.php";
-// variabili
+                // variabili
                 $posizionex = 0;
                 $posizioney = 0;
                 $randomValuex = rand(-50, 50);
                 $randomValuey = rand(-50, 50);
 
-// In base al reparto e alla sezione selezionato al componente vengono dati valori x/y prestabiliti 
-// e viene sommato un valore random per far si che gli oggetti poi mostrati nella mappa
-// non siano tutti nello stesso punto
-// Reparto A sezione 1 - 2 - 3
+                // In base al reparto e alla sezione selezionato al componente vengono dati valori x/y prestabiliti 
+                // e viene sommato un valore random per far si che gli oggetti poi mostrati nella mappa
+                // non siano tutti nello stesso punto
+                // Reparto A sezione 1 - 2 - 3
                 if ("{$_REQUEST['campo2']}" == "A" && "{$_REQUEST['campo3']}" == "1") {
                     $posizionex = 70 + $randomValuex;
                     $posizioney = 230 + $randomValuey;
@@ -114,5 +114,4 @@ require "$top";
 <?php
 $footer = $vd->getFooterFile();
 require "$footer";
-?>
 

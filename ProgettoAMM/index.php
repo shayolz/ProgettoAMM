@@ -112,9 +112,10 @@ class FrontController {
     public static function write404() {
         // impostiamo il codice della risposta http a 404 (file not found)
         header('HTTP/1.0 404 Not Found');
-        $titolo = "File non trovato!";
-        $messaggio = "La pagina che hai richiesto non &egrave; disponibile";
-        echo'' . $messaggio;
+        $titolo = "<h1>File non trovato.</h1>";
+        $messaggio1 = "La pagina che hai richiesto non &egrave; disponibile";
+        $messaggio2 = "Per tornare in home page clicca <a href='index.php'><font color='blue'>qui</font></a>";
+        echo $titolo . '<br>' . $messaggio1 . '<br>' . $messaggio2;
         exit();
     }
 }

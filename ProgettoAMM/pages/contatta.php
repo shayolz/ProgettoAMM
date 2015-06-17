@@ -1,6 +1,6 @@
 <?php
 // Evitiamo che il file venga richiesto direttamente
-if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) {
+if (__FILE__ == filter_input(INPUT_SERVER, 'SCRIPT_FILENAME', FILTER_SANITIZE_STRING)) {
     echo '<script language=javascript>document.location.href="../index.php?page=accesso"</script>';
     exit();
 }
@@ -67,7 +67,7 @@ require "$top";
 // Se il login e' errato allora interviene il javascript con un messaggio di warning
 // logincode.php rimanda a msg loginfailed
 
-if (!empty($_GET) && isset($_GET['msg']) && $_GET['msg'] == "emailerrata") {
+if (!empty(filter_input_array(INPUT_GET)) && isset($_GET['msg']) && filter_input(INPUT_GET, 'msg') == "emailerrata") {
     echo '<script language=javascript>emailErrata()</script>';
 }
 ?>
@@ -76,4 +76,3 @@ if (!empty($_GET) && isset($_GET['msg']) && $_GET['msg'] == "emailerrata") {
 <?php
 $footer = $vd->getFooterFile();
 require "$footer";
-?>

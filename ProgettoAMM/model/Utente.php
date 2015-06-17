@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Description of Destinatario
+ * Description of Utente
  */
-class Destinatario {
+class Utente {
 
     private $nome;
     private $cognome;
@@ -129,5 +129,5 @@ class Destinatario {
 
         $this->email = $email;
     }
-
 }
+?>
