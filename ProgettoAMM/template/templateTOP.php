@@ -8,6 +8,7 @@
         <title><?= $vd->getTitolo() ?></title>
 
         <script src="include/checkform.js"></script>
+        <script src="include/mostradati.js"></script>
     </head>
     <body>
 

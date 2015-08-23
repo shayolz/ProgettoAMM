@@ -8,7 +8,7 @@ class Database {
     public static $db_password = 'davide'; // MySQL DB Pass
     public static $db_name = 'progettoAM'; // MySQL DB Name
     // Debug, mostra l'apertura e la chiusura di una connessione
-    public static $db_debug = 'true'; // Debug mode
+    public static $db_debug = 'false'; // Debug mode
 
 // Server pubblico
 //public static $db_host = 'localhost'; // MySQL Host ip

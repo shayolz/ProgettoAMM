@@ -37,6 +37,8 @@ require "$top";
                     header("location: ./pages/accesso.php");
                     return;
                 }
+                
+                echo" <input type='button' value='Mostra dettagli contatto' onClick='mostradati()' > <br><br>";
 
                 // inizializzo variabile
                 $elements = 0;
@@ -61,10 +63,15 @@ require "$top";
                 // ciclo sulle righe che la query ha restituito
                 while ($stmt->fetch()) {
                     $elements = $elements + 1;
+                    
+                    $_SESSION['id'] = $res_id;
+                    $_SESSION['nome'] = $res_nome;
+                    $_SESSION['email'] = $res_email;
+                    
                     // ho nelle varibili dei risultati il contenuto delle colonne
-                    echo "ID contact form: $res_id, Nome: $res_nome, Email: $res_email<br>";
+                    // echo "ID contact form: $res_id, Nome: $res_nome, Email: $res_email<br>";
                     echo "Testo: <div id='testocolorato'>$res_testo.</div> <br>";
-                }
+                }      
 
                 // Controllo se ci sono risultati
                 if ($elements == 0) {

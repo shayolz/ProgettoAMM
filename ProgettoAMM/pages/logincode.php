@@ -7,6 +7,7 @@ if (__FILE__ == filter_input(INPUT_SERVER, 'SCRIPT_FILENAME', FILTER_SANITIZE_ST
 }
 ?>
 <?php
+
 include_once './view/magazzino.php';
 include_once './view/ViewDescriptor.php';
 ?>
@@ -16,18 +17,13 @@ if (isset($_REQUEST["login"]) && isset($_REQUEST["username"]) && isset($_REQUEST
     if (login($_REQUEST["username"], $_REQUEST["password"])) {
         /* Registro la sessione "loginsuccess" */
         $_SESSION["loginsuccess"] = "autorizzato";
+
+        if ($_REQUEST["username"] == "amministratore") {
+            $utente->setAdmin(1);
+        } else {
+            $utente->setAdmin(0);
+        }
         
-        if ($_REQUEST["username"] == "amministratore")
-            {
-                // Imposto l'attributo statico
-         $utente->setAdmin(1); 
-}
-else
-    {
-                // Imposto l'attributo statico
-         $utente->setAdmin(0); 
-}
-    
         // redirect alla pagina protetta
         echo '<script language=javascript>document.location.href="./index.php?page=accesso"</script>';
     } else {
@@ -38,7 +34,7 @@ else
 
 function login($user, $password) {
     if ($user == "amministratore" && $password == "prova") {
-        
+
         /* Registro la sessione "admin" */
         $_SESSION["admin"] = 1;
 
