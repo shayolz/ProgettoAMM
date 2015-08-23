@@ -70,12 +70,7 @@ require "$top";
                 } else {
                     echo"Non sono presenti questi componenti all`interno del magazzino";
                 }
-//if (mysql_query ($query)){
-//   echo ("Inserimento riuscito!");
-//}
-//else{
-                //  echo ("Errore nell'inserimento! Si prega di riprovare!");
-//}
+
                 //Chiusura della connessione
                 $mysqli->close();
 

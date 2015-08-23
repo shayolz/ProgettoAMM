@@ -1,8 +1,8 @@
 /*
  * CSS File - Enrico Silvano
  */
-/* resize images */
 
+/* resize images */
 img {
     width: 100%;
     height: auto;
@@ -10,14 +10,13 @@ img {
 /*
  * MAIN container
  */
-
 #MAINcontainer {
     /* background-color: #FF0000;*/
 }
+
 /*
  * Utilizzato per la creazione della mppa
  */
-
 .npctable,
 .itemtable,
 .npcdetailtable,
@@ -55,10 +54,10 @@ img {
     font-weight: bold;
     text-decoration: none;
 }
+
 /*
  * Text Decorations: link, visited, hover
  */
-
 A:link {
     color: #0066b9;
     font-family: Verdana;
@@ -74,20 +73,20 @@ A:visited {
 A:hover {
     color: #FF0000;
 }
-/* decorazione 1 */
 
+/* decorazione 1 */
 span.dec1 {
     font-style: italic;
     font-weight: bold;
 }
-/* decorazione 2 */
 
+/* decorazione 2 */
 span.dec2 {
     font-weight: bold;
     text-decoration: none;
 }
-/* decorazione 3 */
 
+/* decorazione 3 */
 span.dec3 {
     font-weight: bold;
     text-decoration: none;

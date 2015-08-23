@@ -75,6 +75,7 @@ class SimpleController {
                 include 'pages/logout.php';
                 break;
 
+            // in caso rimanda alla master.php
             default:
                 include 'view/master.php';
                 break;

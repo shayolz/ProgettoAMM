@@ -34,9 +34,7 @@ require "$top";
                 <?php
                 echo "<h2>Menu:</h2> <br>";
 
-                if ($_SESSION["admin"]) {
-                    echo "(Solo gli amministratori possono leggere)<br> <A HREF='index.php?page=contattaleggi'> Clicca qui per leggere i messaggi.</a> <br>";
-                }
+                echo "(Solo gli amministratori possono leggere)<br> <A HREF='index.php?page=contattaleggi'> Clicca qui per leggere i messaggi.</a> <br>";
                 ?>
 
 

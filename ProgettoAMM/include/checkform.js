@@ -20,10 +20,12 @@ function Modulo() {
     return true;
 }
 
+// messaggio di login errato
 function loginFailed() {
     alert("Login errato, riprova!");
 }
 
+// messaggio di email errata
 function emailErrata() {
     alert("Email non corretta, riprova!");
 }
