@@ -4,9 +4,9 @@ class Database {
 
     // Localhost
     public static $db_host = 'localhost'; // MySQL Host ip
-    public static $db_user = 'root'; // MysQL DB User
-    public static $db_password = 'davide'; // MySQL DB Pass
-    public static $db_name = 'progettoAM'; // MySQL DB Name
+    public static $db_user = 'silvanoEnrico'; // MysQL DB User
+    public static $db_password = 'criceto6923'; // MySQL DB Pass
+    public static $db_name = 'amm15_silvanoEnrico'; // MySQL DB Name
     // Debug, mostra l'apertura e la chiusura di una connessione
     public static $db_debug = 'false'; // Debug mode
 
