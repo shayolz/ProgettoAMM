@@ -53,7 +53,7 @@ require "$top";
 
                 // eseguiamo la query e controlliamo se c'è un errore
                 if ($stmt->execute()) {
-                    echo ("Oggetto rimosso con successo! </br>");
+                    echo ("Operazione eseguita con successo! </br>");
 
                     // Nessun errore
                     // commit della query nel database
