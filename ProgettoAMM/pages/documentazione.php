@@ -38,7 +38,8 @@ require "$top";
             Per gli input ho messo dei check sia lato HTML5 e sia lato javascript (checkform.js) per controllare se l`inserimento del dato e` corretto. (Per esempio nel campo quantita' va accettato solamente un numero).
             Ho utilizzato il Javascript (mostradati.js) anche per mostrare alcuni dati nel form "Contatta" senza dover ricaricare la pagina. <br>
             Se un utente non effettua l`accesso e prova a connettersi direttamente ai file .php viene reindirizzato nella pagina di login. 
-            Se un utente ha gia' effettuato l`accesso e prova ad accedere alla pagina di login, viene reindirizzato alla pagina di accesso.php.</div>
+            Se un utente ha gia' effettuato l`accesso e prova ad accedere alla pagina di login, viene reindirizzato alla pagina di accesso.php.
+            E' presente un form "Contatta staff" dove gli operatori possono mandare dei messaggi al sistema e solo gli amministratori possono leggerli.</div>
         <br>  
 
         <!-- Torna al login -->
