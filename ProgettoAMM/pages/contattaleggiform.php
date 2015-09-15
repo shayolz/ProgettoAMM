@@ -37,9 +37,7 @@ require "$top";
                     header("location: ./pages/accesso.php");
                     return;
                 }
-
-                echo" <input type='button' value='Mostra dettagli contatto' onClick='mostradati()' > <br><br>";
-
+                
                 // inizializzo variabile
                 $elements = 0;
 
@@ -77,7 +75,11 @@ require "$top";
                 if ($elements == 0) {
                     echo 'Non ci sono testi con questo id univoco!';
                 }
+                else{
+                    echo" <input type='button' value='Mostra dettagli contatto' onClick='mostradati()' > <br><br>";
 
+                }
+                
                 //liberiamo le risorse dello statement
                 $stmt->close();
 
